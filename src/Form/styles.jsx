@@ -3,6 +3,9 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
   max-width: 520px;
   margin: 0 auto;
+  padding: 2.5rem 1rem;
+  box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 1rem;
 `;
 
 export const FormElement = styled.form`
