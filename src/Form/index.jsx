@@ -1,3 +1,8 @@
+import { Wrapper } from "./styles.js";
 export default function Form() {
-  return <h1>Hello World</h1>;
+  return (
+    <Wrapper>
+      <h1>Hello World</h1>
+    </Wrapper>
+  );
 }
