@@ -23,7 +23,12 @@ const InputElement = styled.input`
 `;
 
 export const Submit = styled.input`
+  margin: 0 auto;
   margin-top: 2rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 1.5rem;
+  border: 1px solid black;
+  background: transparent;
   cursor: pointer;
 `;
 
