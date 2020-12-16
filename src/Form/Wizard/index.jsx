@@ -1,3 +1,12 @@
+import { Wrapper, WizardButton } from "./styles.jsx";
+
 export default function Wizard({ steps }) {
-  return <>{steps.map((step) => step)}</>;
+  return (
+    <>
+      <Wrapper>
+        {steps.map((step) => step)}
+        <WizardButton />
+      </Wrapper>
+    </>
+  );
 }
