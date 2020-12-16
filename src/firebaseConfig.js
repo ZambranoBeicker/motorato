@@ -1,6 +1,7 @@
 import app from "firebase/app";
 import "firebase/auth";
 import "firebase/database";
+import "firebase/firestore";
 
 const config = {
   apiKey: "AIzaSyDpQIXWr8SMyNs2xFQo1Ql90haZbQB4iC8",
@@ -27,6 +28,14 @@ class Firebase {
     this.auth.signInWithEmailAndPassword(email, password);
 
   doSignOut = () => this.auth.signOut();
+
+  doLogInWithGoolgle = () => this.auth.signInWithPopup(this.provider);
+
+  doSignOut = () => this.auth.signOut();
+
+  getUser = (uid) => this.db.collection(`users`).doc(uid);
+
+  getVehicle = (vehicle) => this.collection("vehiculos").doc(vehicle);
 
   doLogInWithGoolgle = () => this.auth.signInWithPopup(this.provider);
 }
