@@ -1,4 +1,6 @@
-import { Submit, Wrapper, Input, FormElement } from "./styles.jsx";
+import { Wrapper, Input, FormElement } from "./styles.jsx";
+import Wizard from "./Wizard";
+
 export default function Form() {
   return (
     <Wrapper>
@@ -9,7 +11,7 @@ export default function Form() {
         <Input label="Apellido" type="text" placeholder="Type Here" />
         <Input label="Correo Electrónico" type="text" placeholder="Type Here" />
         <Input label="Contraseña" type="text" placeholder="Type Here" />
-        <Submit type="submit" value="REGISTRATE" />
+        <Wizard steps={[<p>Hello World</p>]} />
       </FormElement>
     </Wrapper>
   );
