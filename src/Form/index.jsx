@@ -146,6 +146,29 @@ export default function Form() {
                     </Box>
                   </Box>
                 </Box>
+                <Box mt="2rem" mr="auto" ml="auto">
+                  <Label>Fotos</Label>
+
+                  <Box mt="1rem">
+                    <InputElement type="file" />
+                  </Box>
+                </Box>
+
+                <Box mt="2rem" mr="auto" ml="auto">
+                  <Label>Video Youtube</Label>
+
+                  <Box mt="1rem">
+                    <InputElement
+                      type="text"
+                      placeholder="Enter your video url"
+                    />
+                  </Box>
+                  <Box>
+                    <Button color="white" background="blue">
+                      Subir Video
+                    </Button>
+                  </Box>
+                </Box>
               </Box>
             </>,
           ]}

@@ -45,7 +45,7 @@ export const Submit = styled.input`
   cursor: pointer;
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
   ${({ borderRadius }) =>
     borderRadius ? `border-radius: ${borderRadius};` : ""}
   background: ${({ background }) => (background ? background : "blue")};
