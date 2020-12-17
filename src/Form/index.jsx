@@ -1,4 +1,11 @@
-import { separationWrapper, Wrapper, Input, FormElement } from "./styles.jsx";
+import {
+  Label,
+  Textarea,
+  SeparationWrapper,
+  Wrapper,
+  Input,
+  FormElement,
+} from "./styles.jsx";
 import Wizard from "./Wizard";
 
 export default function Form() {
@@ -90,6 +97,16 @@ export default function Form() {
                 type="text"
                 placeholder="Enter the brand of your car"
               />
+              <SeparationWrapper>
+                <Label>Descripción</Label>
+                <Textarea
+                  name=""
+                  id=""
+                  cols="30"
+                  rows="10"
+                  placeholder="Enter something"
+                />
+              </SeparationWrapper>
             </>,
           ]}
         />

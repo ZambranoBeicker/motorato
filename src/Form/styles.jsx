@@ -14,7 +14,7 @@ export const FormElement = styled.form`
   width: 100%;
 `;
 
-const Label = styled.label`
+export const Label = styled.label`
   font-weight: bold;
 `;
 
@@ -37,6 +37,15 @@ const InputWrapper = styled.div`
   margin-top: 1rem;
 `;
 
+export const SeparationWrapper = styled.div`
+  max-width: 100%;
+  margin-top: 1.5rem;
+  width: 100%;
+`;
+
+export const Textarea = styled.textarea`
+  width: 100%;
+`;
 export const Input = ({ type, placeholder, label }) => {
   return (
     <InputWrapper>
