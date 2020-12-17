@@ -171,6 +171,184 @@ export default function Form() {
                 </Box>
               </Box>
             </>,
+            <>
+              <Box w="100%">
+                <Box mb="2rem">
+                  <Label>Accesorios</Label>
+                </Box>
+
+                <Box display="flex">
+                  <Box mr="auto" ml="auto">
+                    <Box>
+                      <Label>Equipamiento</Label>
+                    </Box>
+                    <Box mt="1rem">
+                      <Box mr=".75rem">
+                        <InputElement type="checkbox" />
+                      </Box>
+                      <Label>Retrovisores</Label>
+                    </Box>
+
+                    <Box mt="1rem">
+                      <Box mr=".75rem">
+                        <InputElement type="checkbox" />
+                      </Box>
+                      <Label>Neblineros</Label>
+                    </Box>
+
+                    <Box mt="1rem">
+                      <Box mr=".75rem">
+                        <InputElement type="checkbox" />
+                      </Box>
+                      <Label>Aire Acondicionado</Label>
+                    </Box>
+
+                    <Box mt="1rem">
+                      <Box mr=".75rem">
+                        <InputElement type="checkbox" />
+                      </Box>
+                      <Label>full Equipo</Label>
+                    </Box>
+
+                    <Box mt="1rem">
+                      <Box mr=".75rem">
+                        <InputElement type="checkbox" />
+                      </Box>
+                      <Label>Computadora a Bordo</Label>
+                    </Box>
+                    <Box mt="1rem">
+                      <Box mr=".75rem">
+                        <InputElement type="checkbox" />
+                      </Box>
+                      <Label>Parlantes/Bajos</Label>
+                    </Box>
+                    <Box mt="1rem">
+                      <Box mr=".75rem">
+                        <InputElement type="checkbox" />
+                      </Box>
+                      <Label>Radio CD</Label>
+                    </Box>
+                    <Box mt="1rem">
+                      <Box mr=".75rem">
+                        <InputElement type="checkbox" />
+                      </Box>
+                      <Label>Radio MP3</Label>
+                    </Box>
+                  </Box>
+                  <Box mr="auto" ml="auto">
+                    <Box>
+                      <Label>Exterior</Label>
+                    </Box>
+                    <Box mt="1rem">
+                      <Box mr=".75rem">
+                        <InputElement type="checkbox" />
+                      </Box>
+                      <Label>Aros</Label>
+                    </Box>
+
+                    <Box mt="1rem">
+                      <Box mr=".75rem">
+                        <InputElement type="checkbox" />
+                      </Box>
+                      <Label>Aros de Aleación</Label>
+                    </Box>
+
+                    <Box mt="1rem">
+                      <Box mr=".75rem">
+                        <InputElement type="checkbox" />
+                      </Box>
+                      <Label>Parrilla</Label>
+                    </Box>
+                    <Box mt="1rem">
+                      <Box mr=".75rem">
+                        <InputElement type="checkbox" />
+                      </Box>
+                      <Label>Luces Halógenas</Label>
+                    </Box>
+                  </Box>
+
+                  <Box mr="auto" ml="auto">
+                    <Box>
+                      <Label>Seguridad</Label>
+                    </Box>
+                    <Box mt="1rem">
+                      <Box mr=".75rem">
+                        <InputElement type="checkbox" />
+                      </Box>
+                      <Label>Localizador(GPS)</Label>
+                    </Box>
+
+                    <Box mt="1rem">
+                      <Box mr=".75rem">
+                        <InputElement type="checkbox" />
+                      </Box>
+                      <Label>Airbag</Label>
+                    </Box>
+
+                    <Box mt="1rem">
+                      <Box mr=".75rem">
+                        <InputElement type="checkbox" />
+                      </Box>
+                      <Label>Láminas de Seguridad</Label>
+                    </Box>
+                    <Box mt="1rem">
+                      <Box mr=".75rem">
+                        <InputElement type="checkbox" />
+                      </Box>
+                      <Label>Blindado</Label>
+                    </Box>
+                    <Box mt="1rem">
+                      <Box mr=".75rem">
+                        <InputElement type="checkbox" />
+                      </Box>
+                      <Label>Faros antiniebla delantero</Label>
+                    </Box>
+                    <Box mt="1rem">
+                      <Box mr=".75rem">
+                        <InputElement type="checkbox" />
+                      </Box>
+                      <Label>Faros antiniebla traseros</Label>
+                    </Box>
+                    <Box mt="1rem">
+                      <Box mr=".75rem">
+                        <InputElement type="checkbox" />
+                      </Box>
+                      <Label>Inmovilizador de motor</Label>
+                    </Box>
+                    <Box mt="1rem">
+                      <Box mr=".75rem">
+                        <InputElement type="checkbox" />
+                      </Box>
+                      <Label>Repartidor electrónico de frenado</Label>
+                    </Box>
+                  </Box>
+
+                  <Box mr="auto" ml="auto">
+                    <Box>
+                      <Label>Extras</Label>
+                    </Box>
+                    <Box mt="1rem">
+                      <Box mr=".75rem">
+                        <InputElement type="checkbox" />
+                      </Box>
+                      <Label>Sunroof</Label>
+                    </Box>
+                    <Box mt="1rem">
+                      <Box mr=".75rem">
+                        <InputElement type="checkbox" />
+                      </Box>
+                      <Label>Asientos de cuero</Label>
+                    </Box>
+                    <Box mt="1rem">
+                      <Box mr=".75rem">
+                        <InputElement type="checkbox" />
+                      </Box>
+                      <Label>Climatizador</Label>
+                    </Box>
+                  </Box>
+                </Box>
+              </Box>
+            </>,
           ]}
         />
       </FormElement>
