@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Button = styled.button`
+  cursor: pointer;
   padding: 1rem 1.75rem;
   background: ${({ next }) => (next ? "red" : "lightgray")};
   color: ${({ next }) => (next ? "white" : "black")};
@@ -23,8 +24,21 @@ const ButtonsWrapper = styled(Wrapper)`
 export const WizardButton = () => {
   return (
     <ButtonsWrapper>
-      <Button>Previous</Button>
-      <Button next>Next</Button>
+      <Button
+        onClick={(e) => {
+          e.preventDefault();
+        }}
+      >
+        Previous
+      </Button>
+      <Button
+        next
+        onClick={(e) => {
+          e.preventDefault();
+        }}
+      >
+        Next
+      </Button>
     </ButtonsWrapper>
   );
 };
