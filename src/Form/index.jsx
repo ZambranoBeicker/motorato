@@ -1,9 +1,13 @@
 import {
+  Price,
   Label,
   Textarea,
   SeparationWrapper,
   Wrapper,
   Input,
+  Box,
+  Button,
+  InputElement,
   FormElement,
 } from "./styles.jsx";
 import Wizard from "./Wizard";
@@ -107,6 +111,42 @@ export default function Form() {
                   placeholder="Enter something"
                 />
               </SeparationWrapper>
+            </>,
+            <>
+              <Box w="100%">
+                <Price
+                  label="Precio"
+                  button="Precio"
+                  type="text"
+                  placeholder="Enter the price"
+                />
+                <Box mt="2rem">
+                  <Label>Ubicación</Label>
+
+                  <Box display="flex" flexWrap="wrap">
+                    <Box>
+                      <Box w="100%">
+                        <Label>Departamento</Label>
+                      </Box>
+                      <InputElement type="text" placeholder="Enter text" />
+                    </Box>
+
+                    <Box>
+                      <Box w="100%">
+                        <Label>Provincia</Label>
+                      </Box>
+                      <InputElement type="text" placeholder="Enter text" />
+                    </Box>
+
+                    <Box>
+                      <Box w="100%">
+                        <Label>Distrito</Label>
+                      </Box>
+                      <InputElement type="text" placeholder="Enter text" />
+                    </Box>
+                  </Box>
+                </Box>
+              </Box>
             </>,
           ]}
         />
