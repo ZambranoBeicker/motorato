@@ -21,12 +21,19 @@ const ButtonsWrapper = styled(Wrapper)`
   width: 100%;
 `;
 
-export const WizardButton = () => {
+export const WizardButton = ({ setStepIndex, stepsLenght }) => {
   return (
     <ButtonsWrapper>
       <Button
         onClick={(e) => {
           e.preventDefault();
+          setStepIndex((index) => {
+            if (index <= 0) {
+              return 0;
+            }
+
+            return index - 1;
+          });
         }}
       >
         Previous
@@ -35,6 +42,13 @@ export const WizardButton = () => {
         next
         onClick={(e) => {
           e.preventDefault();
+          setStepIndex((index) => {
+            if (index >= stepsLenght) {
+              return stepsLenght;
+            }
+
+            return index + 1;
+          });
         }}
       >
         Next
