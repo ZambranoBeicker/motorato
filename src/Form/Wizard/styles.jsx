@@ -43,8 +43,8 @@ export const WizardButton = ({ setStepIndex, stepsLenght }) => {
         onClick={(e) => {
           e.preventDefault();
           setStepIndex((index) => {
-            if (index >= stepsLenght) {
-              return stepsLenght;
+            if (index >= stepsLenght - 1) {
+              return stepsLenght - 1;
             }
 
             return index + 1;
