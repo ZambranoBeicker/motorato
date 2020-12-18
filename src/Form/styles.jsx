@@ -87,11 +87,16 @@ export const Price = ({ label, button, placeholder, type }) => {
   );
 };
 
-export const Input = ({ type, placeholder, label }) => {
+export const Input = ({ name, type, placeholder, onChange, label }) => {
   return (
     <InputWrapper>
       <Label>{label}</Label>
-      <InputElement type={type} placeholder={placeholder} />
+      <InputElement
+        name={name}
+        type={type}
+        onChange={onChange}
+        placeholder={placeholder}
+      />
     </InputWrapper>
   );
 };

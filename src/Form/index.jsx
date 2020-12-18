@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Price,
   Label,
@@ -13,101 +14,190 @@ import {
 import Wizard from "./Wizard";
 
 export default function Form() {
+  const [firstStepData, setFirstStepData] = useState({});
+  const [secondStepData, setSecondStepData] = useState({});
+  const [thirdStepData, setThirdStepData] = useState({});
+
+  const onChangeHandler = (e, setState) => {
+    setState((state) => {
+      console.info("This is the last state", state);
+      return {
+        ...state,
+        [e.target.name]: e.target.value,
+      };
+    });
+  };
+
   return (
     <Wrapper>
       <FormElement>
         <Wizard
           steps={[
             <>
-              <Input label="Nombre" type="text" placeholder="Type Here" />
+              <Input
+                label="Nombre"
+                type="text"
+                name="firstName"
+                onChange={(e) => onChangeHandler(e, setFirstStepData)}
+                value={firstStepData.firstName}
+                placeholder="Type Here"
+              />
               <Input
                 label="Número de Teléfono"
                 type="text"
+                name="phone"
+                onChange={(e) => onChangeHandler(e, setFirstStepData)}
+                value={firstStepData.phone}
                 placeholder="Type Here"
               />
-              <Input label="Usuario" type="text" placeholder="Type Here" />
-              <Input label="Apellido" type="text" placeholder="Type Here" />
+              <Input
+                label="Usuario"
+                type="text"
+                name="userName"
+                onChange={(e) => onChangeHandler(e, setFirstStepData)}
+                value={firstStepData.userName}
+                placeholder="Type Here"
+              />
+              <Input
+                label="Apellido"
+                type="text"
+                name="lastName"
+                onChange={(e) => onChangeHandler(e, setFirstStepData)}
+                value={firstStepData.lastName}
+                placeholder="Type Here"
+              />
               <Input
                 label="Correo Electrónico"
                 type="text"
+                name="email"
+                onChange={(e) => onChangeHandler(e, setFirstStepData)}
+                value={firstStepData.email}
                 placeholder="Type Here"
               />
-              <Input label="Contraseña" type="text" placeholder="Type Here" />
+              <Input
+                label="Contraseña"
+                type="text"
+                name="password"
+                onChange={(e) => onChangeHandler(e, setFirstStepData)}
+                value={firstStepData.password}
+                placeholder="Type Here"
+              />
             </>,
 
             <>
               <Input
                 label="Marca"
                 type="text"
+                name="brand"
+                onChange={(e) => onChangeHandler(e, setSecondStepData)}
+                value={secondStepData.brand}
                 placeholder="Enter the brand of your car"
               />
               <Input
                 label="Año"
                 type="text"
+                name="year"
+                onChange={(e) => onChangeHandler(e, setSecondStepData)}
+                value={secondStepData.year}
                 placeholder="Enter the brand of your car"
               />
               <Input
                 label="Combustible"
                 type="text"
+                name="fuel"
+                onChange={(e) => onChangeHandler(e, setSecondStepData)}
+                value={secondStepData.fuel}
                 placeholder="Enter the brand of your car"
               />
               <Input
                 label="Timón"
                 type="text"
+                name="steeringWheel"
+                onChange={(e) => onChangeHandler(e, setSecondStepData)}
+                value={secondStepData.steeringWheel}
                 placeholder="Enter the brand of your car"
               />
               <Input
                 label="Número de puertas"
                 type="text"
+                name="doorsQuantity"
+                onChange={(e) => onChangeHandler(e, setSecondStepData)}
+                value={secondStepData.doorsQuantity}
                 placeholder="Enter the brand of your car"
               />
               <Input
                 label="Color"
                 type="text"
+                name="color"
+                onChange={(e) => onChangeHandler(e, setSecondStepData)}
+                value={secondStepData.color}
                 placeholder="Enter the brand of your car"
               />
               <Input
                 label="Motor (Cilindrada)"
                 type="text"
+                name="engine"
+                onChange={(e) => onChangeHandler(e, setSecondStepData)}
+                value={secondStepData.engine}
                 placeholder="Enter the brand of your car"
               />
               <Input
                 label="Modelo"
                 type="text"
+                name="model"
+                onChange={(e) => onChangeHandler(e, setSecondStepData)}
+                value={secondStepData.model}
                 placeholder="Enter the brand of your car"
               />
               <Input
                 label="Tipo"
                 type="text"
+                name="type"
+                onChange={(e) => onChangeHandler(e, setSecondStepData)}
+                value={secondStepData.type}
                 placeholder="Enter the brand of your car"
               />
               <Input
                 label="Tipo de Transmisión"
                 type="text"
+                name="transmissionType"
+                onChange={(e) => onChangeHandler(e, setSecondStepData)}
+                value={secondStepData.transmissionType}
                 placeholder="Enter the brand of your car"
               />
               <Input
                 label="Código de referencia"
                 type="text"
+                name="referenceCode"
+                onChange={(e) => onChangeHandler(e, setSecondStepData)}
+                value={secondStepData.referenceCode}
                 placeholder="Enter the brand of your car"
               />
               <Input
                 label="Kilometraje"
                 type="text"
+                name="mileage"
+                onChange={(e) => onChangeHandler(e, setSecondStepData)}
+                value={secondStepData.mileage}
                 placeholder="Enter the brand of your car"
               />
               <Input
                 label="Nro. Cilindros"
                 type="text"
+                name="cylinderQuantity"
+                onChange={(e) => onChangeHandler(e, setSecondStepData)}
+                value={secondStepData.cylinderQuantity}
                 placeholder="Enter the brand of your car"
               />
               <SeparationWrapper>
                 <Label>Descripción</Label>
                 <Textarea
-                  name=""
+                  name="description"
+                  onChange={(e) => onChangeHandler(e, setSecondStepData)}
                   id=""
                   cols="30"
                   rows="10"
+                  value={secondStepData.description}
                   placeholder="Enter something"
                 />
               </SeparationWrapper>
@@ -118,6 +208,9 @@ export default function Form() {
                   label="Precio"
                   button="Precio"
                   type="text"
+                  name="price"
+                  onChange={(e) => onChangeHandler(e, setThirdStepData)}
+                  value={thirdStepData.price}
                   placeholder="Enter the price"
                 />
                 <Box mt="2rem">
@@ -128,21 +221,39 @@ export default function Form() {
                       <Box w="100%">
                         <Label>Departamento</Label>
                       </Box>
-                      <InputElement type="text" placeholder="Enter text" />
+                      <InputElement
+                        type="text"
+                        name="department"
+                        onChange={(e) => onChangeHandler(e, setThirdStepData)}
+                        value={thirdStepData.department}
+                        placeholder="Enter text"
+                      />
                     </Box>
 
                     <Box>
                       <Box w="100%">
                         <Label>Provincia</Label>
                       </Box>
-                      <InputElement type="text" placeholder="Enter text" />
+                      <InputElement
+                        type="text"
+                        name="province"
+                        onChange={(e) => onChangeHandler(e, setThirdStepData)}
+                        value={thirdStepData.province}
+                        placeholder="Enter text"
+                      />
                     </Box>
 
                     <Box>
                       <Box w="100%">
                         <Label>Distrito</Label>
                       </Box>
-                      <InputElement type="text" placeholder="Enter text" />
+                      <InputElement
+                        type="text"
+                        name="distrite"
+                        onChange={(e) => onChangeHandler(e, setThirdStepData)}
+                        value={thirdStepData.distrite}
+                        placeholder="Enter text"
+                      />
                     </Box>
                   </Box>
                 </Box>
@@ -160,6 +271,9 @@ export default function Form() {
                   <Box mt="1rem">
                     <InputElement
                       type="text"
+                      name="videoLink"
+                      onChange={(e) => onChangeHandler(e, setThirdStepData)}
+                      value={thirdStepData.videoLink}
                       placeholder="Enter your video url"
                     />
                   </Box>
