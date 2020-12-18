@@ -14,7 +14,12 @@ const config = {
 
 class Firebase {
   constructor() {
+		if(!app.apps.length){
     app.initializeApp(config);
+
+		}else{
+			app.app()
+		}
     this.auth = app.auth();
     this.rtdb = app.database();
     this.db = app.firestore();
@@ -33,9 +38,7 @@ class Firebase {
 
   doSignOut = () => this.auth.signOut();
 
-  getUser = (uid) => this.db.collection(`users`).doc(uid);
-
-  getVehicle = (vehicle) => this.collection("vehiculos").doc(vehicle);
+  getRef = (ref) => this.db.collection(ref);
 
   doLogInWithGoolgle = () => this.auth.signInWithPopup(this.provider);
 }

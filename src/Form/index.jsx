@@ -32,6 +32,13 @@ export default function Form() {
     <Wrapper>
       <FormElement>
         <Wizard
+          data={{
+            user: firstStepData,
+            vehicle: {
+              main: secondStepData,
+              commercial: thirdStepData,
+            },
+          }}
           steps={[
             <>
               <Input

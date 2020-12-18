@@ -21,7 +21,12 @@ const ButtonsWrapper = styled(Wrapper)`
   width: 100%;
 `;
 
-export const WizardButton = ({ setStepIndex, stepsLenght }) => {
+export const WizardButton = ({
+  setStepIndex,
+  stepsLenght,
+  saveButton,
+  onClick,
+}) => {
   return (
     <ButtonsWrapper>
       <Button
@@ -38,21 +43,33 @@ export const WizardButton = ({ setStepIndex, stepsLenght }) => {
       >
         Previous
       </Button>
-      <Button
-        next
-        onClick={(e) => {
-          e.preventDefault();
-          setStepIndex((index) => {
-            if (index >= stepsLenght - 1) {
-              return stepsLenght - 1;
-            }
+      {!saveButton ? (
+        <Button
+          next
+          onClick={(e) => {
+            e.preventDefault();
+            setStepIndex((index) => {
+              if (index >= stepsLenght - 1) {
+                return stepsLenght - 1;
+              }
 
-            return index + 1;
-          });
-        }}
-      >
-        Next
-      </Button>
+              return index + 1;
+            });
+          }}
+        >
+          Next
+        </Button>
+      ) : (
+        <Button
+          next
+          onClick={(e) => {
+            e.preventDefault();
+            onClick();
+          }}
+        >
+          Save
+        </Button>
+      )}
     </ButtonsWrapper>
   );
 };
