@@ -1,6 +1,7 @@
 import app from "firebase/app";
 import "firebase/auth";
 import "firebase/database";
+import "firebase/storage";
 import "firebase/firestore";
 
 const config = {
@@ -14,15 +15,15 @@ const config = {
 
 class Firebase {
   constructor() {
-		if(!app.apps.length){
-    app.initializeApp(config);
-
-		}else{
-			app.app()
-		}
+    if (!app.apps.length) {
+      app.initializeApp(config);
+    } else {
+      app.app();
+    }
     this.auth = app.auth();
     this.rtdb = app.database();
     this.db = app.firestore();
+    this.storage = app.storage()
     this.provider = new app.auth.GoogleAuthProvider();
   }
 
@@ -39,6 +40,8 @@ class Firebase {
   doSignOut = () => this.auth.signOut();
 
   getRef = (ref) => this.db.collection(ref);
+
+  storageRef = (ref, data) => this.storage.ref(ref).put(data)
 
   doLogInWithGoolgle = () => this.auth.signInWithPopup(this.provider);
 }

@@ -10,14 +10,16 @@ export default function Wizard({ steps, data }) {
     firebase
       .getRef("usuarios")
       .add(data.user)
-      .then((res) => console.info("data sent successfully", res))
+      .then((res) => console.info("data sent successfully usuarios", res))
       .catch((err) => console.error(err));
 
     firebase
       .getRef("vehiculos")
       .add(data.vehicle)
-      .then((res) => console.info("data sent successfully", res))
+      .then((res) => console.info("data sent successfully vehiculos", res))
       .catch((err) => console.error(err));
+
+    firebase.storageRef("vehicles/" + data.files.name, data.files);
   };
 
   return (

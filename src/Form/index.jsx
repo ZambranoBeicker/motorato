@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Price,
   Label,
@@ -17,6 +17,7 @@ export default function Form() {
   const [firstStepData, setFirstStepData] = useState({});
   const [secondStepData, setSecondStepData] = useState({});
   const [thirdStepData, setThirdStepData] = useState({});
+  const [photos, setPhotos] = useState();
 
   const onChangeHandler = (e, setState) => {
     setState((state) => {
@@ -28,6 +29,10 @@ export default function Form() {
     });
   };
 
+  useEffect(() => {
+    console.info("this is the file", thirdStepData.photo);
+  }, [thirdStepData]);
+
   return (
     <Wrapper>
       <FormElement>
@@ -38,6 +43,7 @@ export default function Form() {
               main: secondStepData,
               commercial: thirdStepData,
             },
+            files: photos,
           }}
           steps={[
             <>
@@ -268,7 +274,17 @@ export default function Form() {
                   <Label>Fotos</Label>
 
                   <Box mt="1rem">
-                    <InputElement type="file" />
+                    <InputElement
+                      onChange={(e) => {
+                        console.log("Changed");
+                        setThirdStepData({
+                          ...thirdStepData,
+                          photo: e.target.files[0].name,
+                        });
+                        setPhotos(e.target.files[0]);
+                      }}
+                      type="file"
+                    />
                   </Box>
                 </Box>
 
