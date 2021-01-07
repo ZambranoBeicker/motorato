@@ -19,7 +19,9 @@ export default function Wizard({ steps, data }) {
       .then((res) => console.info("data sent successfully vehiculos", res))
       .catch((err) => console.error(err));
 
-    firebase.storageRef("vehicles/" + data.files.name, data.files);
+    data.files.forEach((image) => {
+      firebase.storageRef("vehicles/" + image.name, image);
+    });
   };
 
   return (

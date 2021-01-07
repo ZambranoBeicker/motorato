@@ -17,7 +17,7 @@ export default function Form() {
   const [firstStepData, setFirstStepData] = useState({});
   const [secondStepData, setSecondStepData] = useState({});
   const [thirdStepData, setThirdStepData] = useState({});
-  const [photos, setPhotos] = useState();
+  const [photos, setPhotos] = useState([]);
 
   const onChangeHandler = (e, setState) => {
     setState((state) => {
@@ -43,7 +43,7 @@ export default function Form() {
               main: secondStepData,
               commercial: thirdStepData,
             },
-            files: photos,
+            files: [...photos],
           }}
           steps={[
             <>
@@ -275,13 +275,18 @@ export default function Form() {
 
                   <Box mt="1rem">
                     <InputElement
+                      multiple={true}
+                      name="file[]"
                       onChange={(e) => {
-                        console.log("Changed");
-                        setThirdStepData({
-                          ...thirdStepData,
-                          photo: e.target.files[0].name,
-                        });
-                        setPhotos(e.target.files[0]);
+                        if (e.target.files.length > 20) {
+                          alert("Solo puedes guardar hasta 20 imágenes");
+                          e.preventDefault();
+                        } else {
+                          console.info(e.target);
+                          console.info(e.target.files.length);
+                          console.log("Changed");
+                          setPhotos([...e.target.files]);
+                        }
                       }}
                       type="file"
                     />
