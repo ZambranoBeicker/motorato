@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import {
+  SelectElement,
   Price,
   Label,
   Textarea,
@@ -18,6 +19,8 @@ export default function Form() {
   const [secondStepData, setSecondStepData] = useState({});
   const [thirdStepData, setThirdStepData] = useState({});
   const [photos, setPhotos] = useState([]);
+
+  const days = Array(31).fill(null);
 
   const onChangeHandler = (e, setState) => {
     setState((state) => {
@@ -55,6 +58,12 @@ export default function Form() {
                 value={firstStepData.firstName}
                 placeholder="Type Here"
               />
+              <Box>
+                <SelectElement
+                  options={["DNI", "Pasaporte", "Carnet De Extranjería"]}
+                />
+                <InputElement type="text" />
+              </Box>
               <Input
                 label="Número de Teléfono"
                 type="text"
@@ -64,11 +73,11 @@ export default function Form() {
                 placeholder="Type Here"
               />
               <Input
-                label="Usuario"
+                label="Contraseña"
                 type="text"
-                name="userName"
+                name="password"
                 onChange={(e) => onChangeHandler(e, setFirstStepData)}
-                value={firstStepData.userName}
+                value={firstStepData.password}
                 placeholder="Type Here"
               />
               <Input
@@ -79,20 +88,48 @@ export default function Form() {
                 value={firstStepData.lastName}
                 placeholder="Type Here"
               />
+              <Box display="flex">
+                <Label>Género</Label>
+                <InputElement
+                  id="men"
+                  name="gender"
+                  type="radio"
+                  value="Masculino"
+                />
+                <Label htmlFor="men">Masculino</Label>
+                <InputElement
+                  id="women"
+                  name="gender"
+                  type="radio"
+                  value="Femenino"
+                />
+                <Label htmlFor="women">Femenino</Label>
+              </Box>
+              <Box>
+                <Label>Fecha de nacimiento</Label>
+                <Box display="flex">
+                  <SelectElement options={days.map((_, index) => index + 1)} />
+                  <SelectElement
+                    options={["Enero", "Febrero", "Marzo", "Abril"]}
+                  />
+                  <SelectElement
+                    options={[2021, 2020, 2019, 2018, 2017, 2016, 2015]}
+                  />
+                </Box>
+              </Box>
+              <Box>
+                <InputElement type="checkbox" />
+                <Label>
+                  Acepto las políticas de privacidad y los terminos de
+                  condiciones de NeoAuto.com
+                </Label>
+              </Box>
               <Input
                 label="Correo Electrónico"
                 type="text"
                 name="email"
                 onChange={(e) => onChangeHandler(e, setFirstStepData)}
                 value={firstStepData.email}
-                placeholder="Type Here"
-              />
-              <Input
-                label="Contraseña"
-                type="text"
-                name="password"
-                onChange={(e) => onChangeHandler(e, setFirstStepData)}
-                value={firstStepData.password}
                 placeholder="Type Here"
               />
             </>,

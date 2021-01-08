@@ -67,6 +67,21 @@ export const Textarea = styled.textarea`
   width: 100%;
 `;
 
+export const Select = styled.select`
+  display: block;
+`;
+export const SelectElement = ({ options }) => {
+  return (
+    <Select name="" id="">
+      {options.map((option, index) => (
+        <option key={index} value={option}>
+          {option}
+        </option>
+      ))}
+    </Select>
+  );
+};
+
 export const Price = ({ label, button, placeholder, type }) => {
   return (
     <>
