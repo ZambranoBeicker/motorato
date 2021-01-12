@@ -69,6 +69,14 @@ export const Textarea = styled.textarea`
 
 export const Select = styled.select`
   display: block;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: solid 1px #b9b9b9;
+  margin-top: 1rem;
+  color: #616161;
+  border-radius: 0.4rem;
+  font-size: 1.8rem;
+  font-weight: bold;
 `;
 export const SelectElement = ({ options }) => {
   return (
