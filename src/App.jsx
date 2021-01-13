@@ -1,13 +1,14 @@
 import { createGlobalStyle } from "styled-components";
 import Form from "./Form";
 
-const azul = "#1c377e";
-const azuloscuro = "#0d1b41";
-const verde = "#48f2be";
-const celeste = "#e5f0ff";
-const plomo = "#2d2d2c";
-
 const GlobalStyle = createGlobalStyle`
+      :root {
+    --azuloscuro: #0D1B41;
+    --azul: #1C377E;
+    --verde: #48F2BE;
+    --celeste: #E5F0FF;
+    --plomo: #2D2D2C;
+}
 
             * {
               font-family: "Red Hat Display", sans-serif;
@@ -207,6 +208,10 @@ const GlobalStyle = createGlobalStyle`
         display: inline-block;
         max-width: 100%;
       }
+form  input[type="checkbox"]{
+      display: inline;
+      width: auto;
+}
       audio:not([controls]) {
         display: none;
         height: 0;
@@ -337,7 +342,7 @@ const GlobalStyle = createGlobalStyle`
             h6 a {
               font-family: "Red Hat Display", sans-serif;
               font-weight: bold;
-              color: ${azuloscuro};
+              color: var(--azuloscuro);
               font-size: 2.5rem;
               margin-bottom: 2rem;
               color: #fff;

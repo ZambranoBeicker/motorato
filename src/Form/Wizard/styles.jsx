@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const Button = styled.button`
   cursor: pointer;
-  background: ${({ next }) => (next ? "red" : "lightgray")};
-  color: ${({ next }) => (next ? "white" : "black")};
+  background: ${({ next }) => (next ? "var(--azul)" : "transparent")};
+  color: ${({ next }) => (next ? "white" : "var(--azul)")};
   border: 1px solid black;
   ${({ next }) => (next ? "margin-left: auto" : "margin-right:auto")};
   border: none;

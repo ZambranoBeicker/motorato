@@ -48,6 +48,8 @@ export const FormElement = styled.form`
 
 export const Label = styled.label`
   font-size: 1rem;
+  font-weight: normal;
+  color: var(--azuloscuro);
 `;
 
 export const InputElement = styled.input`

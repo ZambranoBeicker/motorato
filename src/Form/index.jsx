@@ -58,18 +58,20 @@ export default function Form() {
                 value={firstStepData.firstName}
                 placeholder="Type Here"
               />
-              <Box>
-                <SelectElement
-                  options={["DNI", "Pasaporte", "Carnet De Extranjería"]}
-                />
-                <InputElement type="text" />
-              </Box>
               <Input
-                label="Número de Teléfono"
+                label="Apellido"
                 type="text"
-                name="phone"
+                name="lastName"
                 onChange={(e) => onChangeHandler(e, setFirstStepData)}
-                value={firstStepData.phone}
+                value={firstStepData.lastName}
+                placeholder="Type Here"
+              />
+              <Input
+                label="Correo Electrónico"
+                type="text"
+                name="email"
+                onChange={(e) => onChangeHandler(e, setFirstStepData)}
+                value={firstStepData.email}
                 placeholder="Type Here"
               />
               <Input
@@ -81,13 +83,26 @@ export default function Form() {
                 placeholder="Type Here"
               />
               <Input
-                label="Apellido"
+                label="Número de Teléfono"
                 type="text"
-                name="lastName"
+                name="phone"
                 onChange={(e) => onChangeHandler(e, setFirstStepData)}
-                value={firstStepData.lastName}
+                value={firstStepData.phone}
                 placeholder="Type Here"
               />
+              <Box display="flex">
+                <Box w="30%" mr="auto">
+                  <SelectElement
+                    options={["DNI", "Pasaporte", "Carnet De Extranjería"]}
+                  />
+                </Box>
+                <Box w="68%" ml="auto">
+                  <InputElement
+                    type="text"
+                    placeholder="Escribe tu documento"
+                  />
+                </Box>
+              </Box>
               <Box display="flex">
                 <Label>Género</Label>
                 <InputElement
@@ -124,14 +139,6 @@ export default function Form() {
                   condiciones de NeoAuto.com
                 </Label>
               </Box>
-              <Input
-                label="Correo Electrónico"
-                type="text"
-                name="email"
-                onChange={(e) => onChangeHandler(e, setFirstStepData)}
-                value={firstStepData.email}
-                placeholder="Type Here"
-              />
             </>,
 
             <>
