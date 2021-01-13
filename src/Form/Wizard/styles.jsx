@@ -4,6 +4,8 @@ export const Button = styled.button`
   cursor: pointer;
   background: ${({ next }) => (next ? "var(--azul)" : "transparent")};
   color: ${({ next }) => (next ? "white" : "var(--azul)")};
+  text-decoration: ${({ next }) => (next ? "none" : "underline")};
+  font-weight: ${({ next }) => (next ? "bold" : "normal")};
   border: 1px solid black;
   ${({ next }) => (next ? "margin-left: auto" : "margin-right:auto")};
   border: none;
@@ -15,7 +17,6 @@ export const Button = styled.button`
   transition: all ease 0.3s;
   float: right;
   font-size: 1.125rem;
-  font-weight: bold;
   &:hover {
     box-shadow: 0.025rem 0.025rem 0.1875rem #0617798f;
     transform: scale(1.1);

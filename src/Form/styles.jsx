@@ -6,7 +6,7 @@ const getRedundantStyles = () => {
   width: 100%;
   padding: 0.625rem 0.9375rem;
   border: solid 1px #b9b9b9;
-  margin-top: 1rem;
+  margin-top: 0.625rem;
   color: #616161;
   border-radius: 0.4rem;
   font-size: 1.125rem;
@@ -53,8 +53,8 @@ export const Label = styled.label`
 `;
 
 export const InputElement = styled.input`
-  ${({ margin }) => (margin ? `margin: ${margin};` : "margin-top: 0.5rem;")}
   ${getRedundantStyles()}
+  ${({ margin }) => (margin ? `margin: ${margin};` : "margin-top: 0.5rem;")}
 `;
 
 export const Submit = styled.input`
@@ -68,16 +68,31 @@ export const Submit = styled.input`
 `;
 
 export const Button = styled.button`
-  ${({ borderRadius }) =>
-    borderRadius ? `border-radius: ${borderRadius};` : ""}
   background: ${({ background }) => (background ? background : "blue")};
   color: ${({ color }) => (color ? color : "white")};
   margin: ${({ margin }) => (margin ? margin : "0")};
+  padding: 1.25rem 3.125rem;
+  padding: ${({ padding }) => padding && padding};
+  cursor: pointer;
+  text-decoration: ${({ next }) => (next ? "none" : "underline")};
+  font-weight: bold;
+  ${({ next }) => (next ? "margin-left: auto" : "margin-right:auto")};
+  border: none;
+  border-radius: 0.3125rem;
+  display: inline-block;
+  width: auto;
+  box-shadow: 0.025rem 0.025rem 0.1875rem rgba(6, 23, 121, 0.18);
+  transition: all ease 0.3s;
+  font-size: 1.125rem;
+  &:hover {
+    box-shadow: 0.025rem 0.025rem 0.1875rem #0617798f;
+    transform: scale(1.1);
+  }
 `;
 
 const InputWrapper = styled.div`
   max-width: 100%;
-  margin-top: 1rem;
+  margin-top: 1.25rem;
 `;
 
 export const SeparationWrapper = styled.div`
@@ -86,15 +101,16 @@ export const SeparationWrapper = styled.div`
 `;
 
 export const Textarea = styled.textarea`
-  width: 100%;
+  ${getRedundantStyles()}
 `;
 
 export const Select = styled.select`
   ${getRedundantStyles()}
+  ${({ margin }) => (margin ? `margin: ${margin};` : "margin-top: 0.5rem;")}
 `;
 export const SelectElement = ({ options }) => {
   return (
-    <Select name="" id="">
+    <Select margin="0.5rem 0 0 0" name="" id="">
       {options.map((option, index) => (
         <option key={index} value={option}>
           {option}
@@ -112,12 +128,15 @@ export const Price = ({ label, button, placeholder, type }) => {
           <Label>{label}</Label>
         </Box>
         <Box mt="1rem" mw="100%" display="flex">
-          <Button margin="0 0 0 auto">{button}</Button>
-          <InputElement
-            margin="0.5rem auto 0 0"
-            type={type}
-            placeholder={placeholder}
-          />
+          <Button
+            padding="0 3.125rem"
+            background="var(--azul)"
+            margin="0 0 0 auto"
+            next
+          >
+            {button}
+          </Button>
+          <InputElement margin="0" type={type} placeholder={placeholder} />
         </Box>
       </Box>
     </>

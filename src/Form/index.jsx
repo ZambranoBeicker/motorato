@@ -75,14 +75,6 @@ export default function Form() {
                 placeholder="Type Here"
               />
               <Input
-                label="Contraseña"
-                type="text"
-                name="password"
-                onChange={(e) => onChangeHandler(e, setFirstStepData)}
-                value={firstStepData.password}
-                placeholder="Type Here"
-              />
-              <Input
                 label="Número de Teléfono"
                 type="text"
                 name="phone"
@@ -90,7 +82,7 @@ export default function Form() {
                 value={firstStepData.phone}
                 placeholder="Type Here"
               />
-              <Box display="flex">
+              <Box display="flex" mt="0.625rem">
                 <Box w="30%" mr="auto">
                   <SelectElement
                     options={["DNI", "Pasaporte", "Carnet De Extranjería"]}
@@ -100,35 +92,6 @@ export default function Form() {
                   <InputElement
                     type="text"
                     placeholder="Escribe tu documento"
-                  />
-                </Box>
-              </Box>
-              <Box display="flex">
-                <Label>Género</Label>
-                <InputElement
-                  id="men"
-                  name="gender"
-                  type="radio"
-                  value="Masculino"
-                />
-                <Label htmlFor="men">Masculino</Label>
-                <InputElement
-                  id="women"
-                  name="gender"
-                  type="radio"
-                  value="Femenino"
-                />
-                <Label htmlFor="women">Femenino</Label>
-              </Box>
-              <Box>
-                <Label>Fecha de nacimiento</Label>
-                <Box display="flex">
-                  <SelectElement options={days.map((_, index) => index + 1)} />
-                  <SelectElement
-                    options={["Enero", "Febrero", "Marzo", "Abril"]}
-                  />
-                  <SelectElement
-                    options={[2021, 2020, 2019, 2018, 2017, 2016, 2015]}
                   />
                 </Box>
               </Box>
@@ -142,110 +105,104 @@ export default function Form() {
             </>,
 
             <>
-              <Input
-                label="Marca"
-                type="text"
-                name="brand"
-                onChange={(e) => onChangeHandler(e, setSecondStepData)}
-                value={secondStepData.brand}
-                placeholder="Enter the brand of your car"
-              />
-              <Input
-                label="Año"
-                type="text"
-                name="year"
-                onChange={(e) => onChangeHandler(e, setSecondStepData)}
-                value={secondStepData.year}
-                placeholder="Enter the brand of your car"
-              />
-              <Input
-                label="Combustible"
-                type="text"
-                name="fuel"
-                onChange={(e) => onChangeHandler(e, setSecondStepData)}
-                value={secondStepData.fuel}
-                placeholder="Enter the brand of your car"
-              />
-              <Input
-                label="Timón"
-                type="text"
-                name="steeringWheel"
-                onChange={(e) => onChangeHandler(e, setSecondStepData)}
-                value={secondStepData.steeringWheel}
-                placeholder="Enter the brand of your car"
-              />
-              <Input
-                label="Número de puertas"
-                type="text"
-                name="doorsQuantity"
-                onChange={(e) => onChangeHandler(e, setSecondStepData)}
-                value={secondStepData.doorsQuantity}
-                placeholder="Enter the brand of your car"
-              />
-              <Input
-                label="Color"
-                type="text"
-                name="color"
-                onChange={(e) => onChangeHandler(e, setSecondStepData)}
-                value={secondStepData.color}
-                placeholder="Enter the brand of your car"
-              />
-              <Input
-                label="Motor (Cilindrada)"
-                type="text"
-                name="engine"
-                onChange={(e) => onChangeHandler(e, setSecondStepData)}
-                value={secondStepData.engine}
-                placeholder="Enter the brand of your car"
-              />
-              <Input
-                label="Modelo"
-                type="text"
-                name="model"
-                onChange={(e) => onChangeHandler(e, setSecondStepData)}
-                value={secondStepData.model}
-                placeholder="Enter the brand of your car"
-              />
-              <Input
-                label="Tipo"
-                type="text"
-                name="type"
-                onChange={(e) => onChangeHandler(e, setSecondStepData)}
-                value={secondStepData.type}
-                placeholder="Enter the brand of your car"
-              />
-              <Input
-                label="Tipo de Transmisión"
-                type="text"
-                name="transmissionType"
-                onChange={(e) => onChangeHandler(e, setSecondStepData)}
-                value={secondStepData.transmissionType}
-                placeholder="Enter the brand of your car"
-              />
-              <Input
-                label="Código de referencia"
-                type="text"
-                name="referenceCode"
-                onChange={(e) => onChangeHandler(e, setSecondStepData)}
-                value={secondStepData.referenceCode}
-                placeholder="Enter the brand of your car"
-              />
-              <Input
-                label="Kilometraje"
-                type="text"
-                name="mileage"
-                onChange={(e) => onChangeHandler(e, setSecondStepData)}
-                value={secondStepData.mileage}
-                placeholder="Enter the brand of your car"
-              />
-              <Input
-                label="Nro. Cilindros"
-                type="text"
-                name="cylinderQuantity"
-                onChange={(e) => onChangeHandler(e, setSecondStepData)}
-                value={secondStepData.cylinderQuantity}
-                placeholder="Enter the brand of your car"
-              />
+              <Box>
+                <Box>
+                  <Label>Sobre el auto</Label>
+                </Box>
+                <Box>
+                  <Label>Marca</Label>
+                  <SelectElement options={["BMW", "Ford", "Toyota"]} />
+                </Box>
+                <Box mt="1rem">
+                  <Label>Modelo</Label>
+                  <SelectElement options={["BMW", "Ford", "Toyota"]} />
+                </Box>
+                <Input
+                  label="Combustible"
+                  type="text"
+                  name="fuel"
+                  onChange={(e) => onChangeHandler(e, setSecondStepData)}
+                  value={secondStepData.fuel}
+                  placeholder="Enter the brand of your car"
+                />
+                <Input
+                  label="Timón"
+                  type="text"
+                  name="steeringWheel"
+                  onChange={(e) => onChangeHandler(e, setSecondStepData)}
+                  value={secondStepData.steeringWheel}
+                  placeholder="Enter the brand of your car"
+                />
+                <Input
+                  label="Número de puertas"
+                  type="text"
+                  name="doorsQuantity"
+                  onChange={(e) => onChangeHandler(e, setSecondStepData)}
+                  value={secondStepData.doorsQuantity}
+                  placeholder="Enter the brand of your car"
+                />
+                <Input
+                  label="Color"
+                  type="text"
+                  name="color"
+                  onChange={(e) => onChangeHandler(e, setSecondStepData)}
+                  value={secondStepData.color}
+                  placeholder="Enter the brand of your car"
+                />
+                <Input
+                  label="Motor (Cilindrada)"
+                  type="text"
+                  name="engine"
+                  onChange={(e) => onChangeHandler(e, setSecondStepData)}
+                  value={secondStepData.engine}
+                  placeholder="Enter the brand of your car"
+                />
+                <Input
+                  label="Tipo"
+                  type="text"
+                  name="type"
+                  onChange={(e) => onChangeHandler(e, setSecondStepData)}
+                  value={secondStepData.type}
+                  placeholder="Enter the brand of your car"
+                />
+                <Input
+                  label="Tipo de Transmisión"
+                  type="text"
+                  name="transmissionType"
+                  onChange={(e) => onChangeHandler(e, setSecondStepData)}
+                  value={secondStepData.transmissionType}
+                  placeholder="Enter the brand of your car"
+                />
+              </Box>
+              <Box mt="1.75rem">
+                <Box mb="-1rem">
+                  <Label>Condiciones del Auto</Label>
+                </Box>
+                <Input
+                  label="Año"
+                  type="text"
+                  name="year"
+                  onChange={(e) => onChangeHandler(e, setSecondStepData)}
+                  value={secondStepData.year}
+                  placeholder="Enter the brand of your car"
+                />
+                <Input
+                  label="Kilometraje"
+                  type="text"
+                  name="mileage"
+                  onChange={(e) => onChangeHandler(e, setSecondStepData)}
+                  value={secondStepData.mileage}
+                  placeholder="Enter the brand of your car"
+                />
+                <Input
+                  label="Tipo de Placa"
+                  type="text"
+                  name="placa"
+                  onChange={(e) => onChangeHandler(e, setSecondStepData)}
+                  value={secondStepData.referenceCode}
+                  placeholder="Enter the brand of your car"
+                />
+              </Box>
               <SeparationWrapper>
                 <Label>Descripción</Label>
                 <Textarea
@@ -350,7 +307,12 @@ export default function Form() {
                     />
                   </Box>
                   <Box>
-                    <Button color="white" background="blue">
+                    <Button
+                      margin="1rem 0 0 0"
+                      color="white"
+                      background="var(--azul)"
+                      next
+                    >
                       Subir Video
                     </Button>
                   </Box>
