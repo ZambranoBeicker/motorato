@@ -2,11 +2,24 @@ import styled from "styled-components";
 
 export const Button = styled.button`
   cursor: pointer;
-  padding: 1rem 1.75rem;
   background: ${({ next }) => (next ? "red" : "lightgray")};
   color: ${({ next }) => (next ? "white" : "black")};
   border: 1px solid black;
   ${({ next }) => (next ? "margin-left: auto" : "margin-right:auto")};
+  border: none;
+  border-radius: 0.5rem;
+  padding: 2rem 5rem;
+  display: inline-block;
+  width: auto;
+  box-shadow: 0.4rem 0.4rem 3rem rgba(6, 23, 121, 0.18);
+  transition: all ease 0.3s;
+  float: right;
+  font-size: 1.8rem;
+  font-weight: bold;
+  &:hover {
+    box-shadow: 0.4rem 0.4rem 3rem #0617798f;
+    transform: scale(1.1);
+  }
 `;
 
 export const Wrapper = styled.div`
