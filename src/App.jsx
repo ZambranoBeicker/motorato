@@ -13,6 +13,50 @@ const GlobalStyle = createGlobalStyle`
               font-family: "Red Hat Display", sans-serif;
             }
 
+      *,
+      :after,
+      :before {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
+      body {
+        font-size: 1rem !important;
+            font-family: 'Montserrat', sans-serif;
+
+        padding: 0;
+        margin: 0;
+        background: #fff;
+        font-style: normal;
+        overflow-x: hidden !important;
+        overflow-y: scroll;
+        -webkit-text-size-adjust: none;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      h1,
+      h1 a,
+      h2,
+      h2 a,
+      h3,
+      h3 a,
+      h4,
+      h4 a,
+      h5,
+      h5 a,
+      h6,
+      h6 a {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        letter-spacing: 0;
+      }
+
         a,
       abbr,
       acronym,
@@ -98,7 +142,6 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         border: 0;
         font-size: 100%;
-        font: inherit;
         vertical-align: baseline;
       }
       :focus {
