@@ -4,12 +4,12 @@ const getRedundantStyles = () => {
   return `
   display: block;
   width: 100%;
-  padding: 1rem 1.5rem;
+  padding: 0.625rem 0.9375rem;
   border: solid 1px #b9b9b9;
   margin-top: 1rem;
   color: #616161;
   border-radius: 0.4rem;
-  font-size: 1.8rem;
+  font-size: 1.125rem;
   font-weight: bold;
   `;
 };
@@ -30,8 +30,8 @@ export const Box = styled.div`
 export const Wrapper = styled.div`
   margin-left: 25%;
   width: 50%;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
   float: left;
 `;
 

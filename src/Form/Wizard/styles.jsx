@@ -7,17 +7,17 @@ export const Button = styled.button`
   border: 1px solid black;
   ${({ next }) => (next ? "margin-left: auto" : "margin-right:auto")};
   border: none;
-  border-radius: 0.5rem;
-  padding: 2rem 5rem;
+  border-radius: 0.3125rem;
+  padding: 1.25rem 3.125rem;
   display: inline-block;
   width: auto;
-  box-shadow: 0.4rem 0.4rem 3rem rgba(6, 23, 121, 0.18);
+  box-shadow: 0.025rem 0.025rem 0.1875rem rgba(6, 23, 121, 0.18);
   transition: all ease 0.3s;
   float: right;
-  font-size: 1.8rem;
+  font-size: 1.125rem;
   font-weight: bold;
   &:hover {
-    box-shadow: 0.4rem 0.4rem 3rem #0617798f;
+    box-shadow: 0.025rem 0.025rem 0.1875rem #0617798f;
     transform: scale(1.1);
   }
 `;
