@@ -25,11 +25,10 @@ export const Button = styled.button`
 export const Wrapper = styled.div`
   max-width: 100%;
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
 `;
 
 const ButtonsWrapper = styled(Wrapper)`
+  display: flex;
   margin-top: 1.5rem;
   width: 100%;
 `;
