@@ -1,5 +1,19 @@
 import styled from "styled-components";
 
+const getRedundantStyles = () => {
+  return `
+  display: block;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: solid 1px #b9b9b9;
+  margin-top: 1rem;
+  color: #616161;
+  border-radius: 0.4rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  `;
+};
+
 export const Box = styled.div`
   display: ${({ display }) => (display ? display : "block")};
   margin-top: ${({ mt }) => (mt ? mt : "0")};
@@ -14,25 +28,31 @@ export const Box = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  max-width: 520px;
-  margin: 0 auto;
-  padding: 2.5rem 1rem;
-  box-shadow: 5px 5px 15px 0 rgba(0, 0, 0, 0.25);
-  border-radius: 1rem;
+  margin-left: 25%;
+  width: 50%;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  float: left;
 `;
 
 export const FormElement = styled.form`
-  display: flex;
-  flex-wrap: wrap;
   width: 100%;
+  padding: 1rem 1.5rem;
+  border: solid 1px #b9b9b9;
+  margin-top: 1rem;
+  color: #616161;
+  border-radius: 0.4rem;
+  font-size: 1.8rem;
+  font-weight: bold;
 `;
 
 export const Label = styled.label`
-  font-weight: bold;
+  font-size: 1rem;
 `;
 
 export const InputElement = styled.input`
   ${({ margin }) => (margin ? `margin: ${margin};` : "margin-top: 0.5rem;")}
+  ${getRedundantStyles()}
 `;
 
 export const Submit = styled.input`
@@ -68,15 +88,7 @@ export const Textarea = styled.textarea`
 `;
 
 export const Select = styled.select`
-  display: block;
-  width: 100%;
-  padding: 1rem 1.5rem;
-  border: solid 1px #b9b9b9;
-  margin-top: 1rem;
-  color: #616161;
-  border-radius: 0.4rem;
-  font-size: 1.8rem;
-  font-weight: bold;
+  ${getRedundantStyles()}
 `;
 export const SelectElement = ({ options }) => {
   return (

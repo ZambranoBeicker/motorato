@@ -171,11 +171,6 @@ const GlobalStyle = createGlobalStyle`
       [hidden] {
         display: none;
       }
-      html {
-        font-size: 100%;
-        -webkit-text-size-adjust: 100%;
-        -ms-text-size-adjust: 100%;
-      }
       a:focus {
         outline: thin dotted;
       }
