@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 const getRedundantStyles = () => {
@@ -15,6 +16,7 @@ const getRedundantStyles = () => {
 };
 
 export const Box = styled.div`
+  position: ${({ position }) => (position ? position : "static")};
   display: ${({ display }) => (display ? display : "block")};
   margin-top: ${({ mt }) => (mt ? mt : "0")};
   margin-right: ${({ mr }) => (mr ? mr : "0")};
@@ -154,5 +156,73 @@ export const Input = ({ name, type, placeholder, onChange, label }) => {
         placeholder={placeholder}
       />
     </InputWrapper>
+  );
+};
+
+export const Checkbox = ({ name, placeholder, onChange, label }) => {
+  const [hover, setHover] = useState(false);
+
+  const CheckboxContainer = styled.div`
+    position: relative;
+    cursor: pointer;
+    font-size: 22px;
+    user-select: none;
+    width: fit-content;
+    margin-right: 0.625rem;
+    margin-bottom: 1rem;
+    z-index: 100;
+  `;
+  const BorderWrapper = styled.div`
+    border: solid 1px #666;
+    border-radius: 62.5rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3125rem 0.625rem 0.3125rem 1.875rem;
+    font-size: 0.8125rem;
+  `;
+
+  const InputCheckbox = styled.input`
+    opacity: 0;
+    position: absolute;
+  `;
+  const CheckboxLabel = styled(Label)`
+    cursor: pointer;
+  `;
+  const CheckMark = styled.span`
+    position: absolute;
+    left: 0.3125rem;
+    height: 1.0625rem;
+    width: 1.0625rem;
+    background-color: var(--azul);
+    border-radius: 62.5rem;
+    background-size: 0.5625rem;
+    background-color: #fff;
+    border: solid 2px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border: solid 1px #ccc;
+    background-image: ${hover &&
+    "url(data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjQxN3B0IiB2aWV3Qm94PSIwIC00NiA0MTcuODEzMzMgNDE3IiB3aWR0aD0iNDE3cHQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTE1OS45ODgyODEgMzE4LjU4MjAzMWMtMy45ODgyODEgNC4wMTE3MTktOS40Mjk2ODcgNi4yNS0xNS4wODIwMzEgNi4yNXMtMTEuMDkzNzUtMi4yMzgyODEtMTUuMDgyMDMxLTYuMjVsLTEyMC40NDkyMTktMTIwLjQ2ODc1Yy0xMi41LTEyLjUtMTIuNS0zMi43Njk1MzEgMC00NS4yNDYwOTNsMTUuMDgyMDMxLTE1LjA4NTkzOGMxMi41MDM5MDctMTIuNSAzMi43NS0xMi41IDQ1LjI1IDBsNzUuMTk5MjE5IDc1LjIwMzEyNSAyMDMuMTk5MjE5LTIwMy4yMDMxMjVjMTIuNTAzOTA2LTEyLjUgMzIuNzY5NTMxLTEyLjUgNDUuMjUgMGwxNS4wODIwMzEgMTUuMDg1OTM4YzEyLjUgMTIuNSAxMi41IDMyLjc2NTYyNCAwIDQ1LjI0NjA5M3ptMCAwIi8+PC9zdmc+)"};
+  `;
+
+  return (
+    <CheckboxContainer>
+      <InputCheckbox name={name} type="checkbox" onChange={onChange} />
+      <BorderWrapper
+        onMouseEnter={(e) => {
+          if (e) {
+            setHover(true);
+          }
+        }}
+        onMouseLeave={(e) => {
+          if (e) {
+            setHover(false);
+          }
+        }}
+      >
+        <CheckMark />
+        <CheckboxLabel>{label}</CheckboxLabel>
+      </BorderWrapper>
+    </CheckboxContainer>
   );
 };

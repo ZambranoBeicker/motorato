@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import {
+  Checkbox,
   SelectElement,
   Price,
   Label,
@@ -336,10 +337,7 @@ export default function Form() {
                       <Label>Equipamiento</Label>
                     </Box>
                     <Box mt="1rem">
-                      <Box mr=".75rem">
-                        <InputElement type="checkbox" />
-                      </Box>
-                      <Label>Retrovisores</Label>
+                      <Checkbox label="New Checkbox" />
                     </Box>
 
                     <Box mt="1rem">
