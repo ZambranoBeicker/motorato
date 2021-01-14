@@ -56,7 +56,7 @@ export default function Form() {
                 name="firstName"
                 onChange={(e) => onChangeHandler(e, setFirstStepData)}
                 value={firstStepData.firstName}
-                placeholder="Type Here"
+                placeholder="Tu nombre"
               />
               <Input
                 label="Apellido"
@@ -64,7 +64,7 @@ export default function Form() {
                 name="lastName"
                 onChange={(e) => onChangeHandler(e, setFirstStepData)}
                 value={firstStepData.lastName}
-                placeholder="Type Here"
+                placeholder="Tu apellido"
               />
               <Input
                 label="Correo Electrónico"
@@ -72,7 +72,7 @@ export default function Form() {
                 name="email"
                 onChange={(e) => onChangeHandler(e, setFirstStepData)}
                 value={firstStepData.email}
-                placeholder="Type Here"
+                placeholder="Tu correo electónico"
               />
               <Input
                 label="Número de Teléfono"
@@ -80,26 +80,31 @@ export default function Form() {
                 name="phone"
                 onChange={(e) => onChangeHandler(e, setFirstStepData)}
                 value={firstStepData.phone}
-                placeholder="Type Here"
+                placeholder="Tu número de teléfono"
               />
-              <Box display="flex" mt="0.625rem">
-                <Box w="30%" mr="auto">
-                  <SelectElement
-                    options={["DNI", "Pasaporte", "Carnet De Extranjería"]}
-                  />
+              <Box>
+                <Box>
+                  <Label>Documento</Label>
                 </Box>
-                <Box w="68%" ml="auto">
-                  <InputElement
-                    type="text"
-                    placeholder="Escribe tu documento"
-                  />
+                <Box display="flex" mt="0.625rem">
+                  <Box w="30%" mr="auto">
+                    <SelectElement
+                      options={["DNI", "Pasaporte", "Carnet De Extranjería"]}
+                    />
+                  </Box>
+                  <Box w="68%" ml="auto">
+                    <InputElement
+                      type="text"
+                      placeholder="Número de documento"
+                    />
+                  </Box>
                 </Box>
               </Box>
               <Box>
                 <InputElement type="checkbox" />
                 <Label>
                   Acepto las políticas de privacidad y los terminos de
-                  condiciones de NeoAuto.com
+                  condiciones de Motorato.com
                 </Label>
               </Box>
             </>,
@@ -123,7 +128,7 @@ export default function Form() {
                   name="fuel"
                   onChange={(e) => onChangeHandler(e, setSecondStepData)}
                   value={secondStepData.fuel}
-                  placeholder="Enter the brand of your car"
+                  placeholder="Tipo de combustible"
                 />
                 <Input
                   label="Timón"
@@ -131,7 +136,7 @@ export default function Form() {
                   name="steeringWheel"
                   onChange={(e) => onChangeHandler(e, setSecondStepData)}
                   value={secondStepData.steeringWheel}
-                  placeholder="Enter the brand of your car"
+                  placeholder=""
                 />
                 <Input
                   label="Número de puertas"
@@ -139,7 +144,7 @@ export default function Form() {
                   name="doorsQuantity"
                   onChange={(e) => onChangeHandler(e, setSecondStepData)}
                   value={secondStepData.doorsQuantity}
-                  placeholder="Enter the brand of your car"
+                  placeholder="Cantidad de puertas de tu auto"
                 />
                 <Input
                   label="Color"
@@ -147,7 +152,7 @@ export default function Form() {
                   name="color"
                   onChange={(e) => onChangeHandler(e, setSecondStepData)}
                   value={secondStepData.color}
-                  placeholder="Enter the brand of your car"
+                  placeholder=""
                 />
                 <Input
                   label="Motor (Cilindrada)"
@@ -158,7 +163,7 @@ export default function Form() {
                   placeholder="Enter the brand of your car"
                 />
                 <Input
-                  label="Tipo"
+                  label="Tipo de vehículo"
                   type="text"
                   name="type"
                   onChange={(e) => onChangeHandler(e, setSecondStepData)}
