@@ -1,5 +1,5 @@
-import { useState } from "react";
-import styled from "styled-components";
+import { useState, createRef, useRef, useEffect } from "react";
+import styled, { css, keyframes } from "styled-components";
 
 const getRedundantStyles = () => {
   return `
@@ -30,8 +30,8 @@ export const Box = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  margin-left: 25%;
-  width: 50%;
+  margin-left: 20%;
+  width: 60%;
   padding-left: 0.9375rem;
   padding-right: 0.9375rem;
   float: left;
@@ -159,8 +159,16 @@ export const Input = ({ name, type, placeholder, onChange, label }) => {
   );
 };
 
-export const Checkbox = ({ name, placeholder, onChange, label }) => {
+export const Checkbox = ({ name, onChange, label }) => {
   const [hover, setHover] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
+
+  const checkboxRef = createRef();
+
+  useEffect(() => {
+    checkboxRef.current.checked = isChecked;
+  }, [isChecked]);
 
   const CheckboxContainer = styled.div`
     position: relative;
@@ -171,14 +179,55 @@ export const Checkbox = ({ name, placeholder, onChange, label }) => {
     margin-right: 0.625rem;
     margin-bottom: 1rem;
     z-index: 100;
+    transition: 0.5s;
+  `;
+
+  const borderWrapperEnter = keyframes`
+
+    0%{
+      background: white;
+      padding:0.3125rem 0.625rem 0.3125rem 1.875rem;
+    }
+    100%{
+      background: var(--azuloscuro);
+      padding:0.3125rem 1.925rem 0.3125rem 0.575rem;
+    }
+  `;
+  /*const borderWrapperLeave = keyframes`
+
+    0%{
+      background: var(--azuloscuro);
+      padding:0.3125rem 1.925rem 0.3125rem 0.575rem;
+    }
+    100%{
+      background: white;
+      padding:0.3125rem 0.625rem 0.3125rem 1.875rem;
+    }
+  `;*/
+
+  const checkMarkEnter = keyframes`
+
+    0%{
+      opacity: 0;
+      transform: translateX(135px);
+    }
+    100%{
+      opacity: 1;
+      transform: translateX(135px);
+    }
   `;
   const BorderWrapper = styled.div`
     border: solid 1px #666;
     border-radius: 62.5rem;
     display: flex;
     justify-content: space-between;
-    padding: 0.3125rem 0.625rem 0.3125rem 1.875rem;
     font-size: 0.8125rem;
+    padding: 0.3125rem 0.625rem 0.3125rem 1.875rem;
+    ${({ animation }) =>
+      animation &&
+      css`
+        animation: ${borderWrapperEnter} 0.5s forwards;
+      `}
   `;
 
   const InputCheckbox = styled.input`
@@ -187,6 +236,8 @@ export const Checkbox = ({ name, placeholder, onChange, label }) => {
   `;
   const CheckboxLabel = styled(Label)`
     cursor: pointer;
+    transition: 0.5s;
+    ${isClicked && "color: white;"}
   `;
   const CheckMark = styled.span`
     position: absolute;
@@ -203,24 +254,39 @@ export const Checkbox = ({ name, placeholder, onChange, label }) => {
     border: solid 1px #ccc;
     background-image: ${hover &&
     "url(data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjQxN3B0IiB2aWV3Qm94PSIwIC00NiA0MTcuODEzMzMgNDE3IiB3aWR0aD0iNDE3cHQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTE1OS45ODgyODEgMzE4LjU4MjAzMWMtMy45ODgyODEgNC4wMTE3MTktOS40Mjk2ODcgNi4yNS0xNS4wODIwMzEgNi4yNXMtMTEuMDkzNzUtMi4yMzgyODEtMTUuMDgyMDMxLTYuMjVsLTEyMC40NDkyMTktMTIwLjQ2ODc1Yy0xMi41LTEyLjUtMTIuNS0zMi43Njk1MzEgMC00NS4yNDYwOTNsMTUuMDgyMDMxLTE1LjA4NTkzOGMxMi41MDM5MDctMTIuNSAzMi43NS0xMi41IDQ1LjI1IDBsNzUuMTk5MjE5IDc1LjIwMzEyNSAyMDMuMTk5MjE5LTIwMy4yMDMxMjVjMTIuNTAzOTA2LTEyLjUgMzIuNzY5NTMxLTEyLjUgNDUuMjUgMGwxNS4wODIwMzEgMTUuMDg1OTM4YzEyLjUgMTIuNSAxMi41IDMyLjc2NTYyNCAwIDQ1LjI0NjA5M3ptMCAwIi8+PC9zdmc+)"};
+    ${({ animation }) =>
+      animation &&
+      css`
+        animation: ${checkMarkEnter} 0.5s forwards;
+      `}
   `;
 
   return (
-    <CheckboxContainer>
-      <InputCheckbox name={name} type="checkbox" onChange={onChange} />
+    <CheckboxContainer
+      onClick={(e) => {
+        setIsClicked((state) => !state);
+        setIsChecked((state) => !state);
+      }}
+    >
+      <InputCheckbox
+        ref={checkboxRef}
+        name={name}
+        type="checkbox"
+        onChange={onChange}
+      />
       <BorderWrapper
-        onMouseEnter={(e) => {
-          if (e) {
-            setHover(true);
-          }
+        animation={isClicked}
+        onMouseEnter={() => {
+          setHover(true);
         }}
-        onMouseLeave={(e) => {
-          if (e) {
-            setHover(false);
+        onMouseLeave={() => {
+          if (!isClicked) {
+            //setHover(false);
+            console.info("hovered");
           }
         }}
       >
-        <CheckMark />
+        <CheckMark animation={isClicked} />
         <CheckboxLabel>{label}</CheckboxLabel>
       </BorderWrapper>
     </CheckboxContainer>
