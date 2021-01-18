@@ -333,82 +333,88 @@ export default function Form() {
 
                 <Box flexWrap="wrap" display="flex">
                   <Box mt="1rem">
-                    <Checkbox label="New Checkbox" />
+                    <Checkbox label="Retrovisores Eléctricos" />
                   </Box>
 
                   <Box mt="1rem">
-                    <Checkbox label="New Checkbox" />
+                    <Checkbox label="Neblineros" />
                   </Box>
 
                   <Box mt="1rem">
-                    <Checkbox label="New Checkbox" />
+                    <Checkbox label="Aire Acondicionado" />
                   </Box>
 
                   <Box mt="1rem">
-                    <Checkbox label="New Checkbox" />
+                    <Checkbox label="Full Equipo" />
                   </Box>
 
                   <Box mt="1rem">
-                    <Checkbox label="New Checkbox" />
+                    <Checkbox label="Computadora de abordo" />
                   </Box>
                   <Box mt="1rem">
-                    <Checkbox label="New Checkbox" />
+                    <Checkbox label="Parlantes/Bajos" />
                   </Box>
                   <Box mt="1rem">
-                    <Checkbox label="New Checkbox" />
+                    <Checkbox label="Radio CD" />
                   </Box>
                   <Box mt="1rem">
-                    <Checkbox label="New Checkbox" />
+                    <Checkbox label="Radio MP3" />
                   </Box>
                   <Box mt="1rem">
-                    <Checkbox label="New Checkbox" />
-                  </Box>
-
-                  <Box mt="1rem">
-                    <Checkbox label="New Checkbox" />
+                    <Checkbox label="Aros" />
                   </Box>
 
                   <Box mt="1rem">
-                    <Checkbox label="New Checkbox" />
-                  </Box>
-                  <Box mt="1rem">
-                    <Checkbox label="New Checkbox" />
+                    <Checkbox label="Aros de Aleación" />
                   </Box>
 
                   <Box mt="1rem">
-                    <Checkbox label="New Checkbox" />
+                    <Checkbox label="Parrilla" />
+                  </Box>
+                  <Box mt="1rem">
+                    <Checkbox label="Luces Halógenas" />
                   </Box>
 
                   <Box mt="1rem">
-                    <Checkbox label="New Checkbox" />
+                    <Checkbox label="Localizador (GPS)" />
                   </Box>
 
                   <Box mt="1rem">
-                    <Checkbox label="New Checkbox" />
+                    <Checkbox label="Airbag" />
+                  </Box>
+
+                  <Box mt="1rem">
+                    <Checkbox label="Láminas de Seguridad" />
                   </Box>
                   <Box mt="1rem">
-                    <Checkbox label="New Checkbox" />
+                    <Checkbox label="Blindado" />
                   </Box>
                   <Box mt="1rem">
-                    <Checkbox label="New Checkbox" />
+                    <Checkbox label="Faros antiniebla delantero" />
                   </Box>
                   <Box mt="1rem">
-                    <Checkbox label="New Checkbox" />
+                    <Checkbox label="Faros antiniebla traseros" />
                   </Box>
                   <Box mt="1rem">
-                    <Checkbox label="New Checkbox" />
+                    <Checkbox label="Inmovilizador de motor" />
                   </Box>
                   <Box mt="1rem">
-                    <Checkbox label="New Checkbox" />
+                    <Checkbox label="Repartidor electrónico de frenado" />
                   </Box>
                   <Box mt="1rem">
-                    <Checkbox label="New Checkbox" />
+                    <Checkbox label="Frenos ABS" />
                   </Box>
                   <Box mt="1rem">
-                    <Checkbox label="New Checkbox" />
+                    <Checkbox label="Alarma" />
                   </Box>
                   <Box mt="1rem">
-                    <Checkbox label="New Checkbox" />
+                    <Checkbox label="Sunroof" />
+                  </Box>
+                  <Box mt="1rem">
+                    <Checkbox label="Asientos de cuero" />
+                  </Box>
+                  <Box mt="1rem">
+                    <Checkbox label="Climatizador" />
                   </Box>
                 </Box>
               </Box>

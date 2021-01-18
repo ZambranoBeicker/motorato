@@ -1,4 +1,4 @@
-import { useState, createRef, useRef, useEffect } from "react";
+import { cloneElement, useState, createRef, useRef, useEffect } from "react";
 import styled, { css, keyframes } from "styled-components";
 
 const getRedundantStyles = () => {
@@ -145,6 +145,36 @@ export const Price = ({ label, button, placeholder, type }) => {
   );
 };
 
+const CheckMarkContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+`;
+
+const CheckMarkWrapper = ({ children, isClicked }) => {
+  const [hover, setHover] = useState(false);
+
+  useEffect(() => {
+    console.info("hovered");
+  }, [hover]);
+
+  return (
+    <CheckMarkContainer
+      onMouseEnter={() => {
+        setHover(true);
+      }}
+      onMouseLeave={() => {
+        if (!isClicked) {
+          setHover(false);
+        }
+      }}
+    >
+      {cloneElement(children, { hover }, null)}
+    </CheckMarkContainer>
+  );
+};
 export const Input = ({ name, type, placeholder, onChange, label }) => {
   return (
     <InputWrapper>
@@ -163,12 +193,16 @@ export const Checkbox = ({ name, onChange, label }) => {
   const [hover, setHover] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
+  const [canAnimate, setCanAnimate] = useState(false);
 
   const checkboxRef = createRef();
 
   useEffect(() => {
     checkboxRef.current.checked = isChecked;
   }, [isChecked]);
+  useEffect(() => {
+    console.info("Clicked");
+  }, [isClicked]);
 
   const CheckboxContainer = styled.div`
     position: relative;
@@ -193,7 +227,7 @@ export const Checkbox = ({ name, onChange, label }) => {
       padding:0.3125rem 1.925rem 0.3125rem 0.575rem;
     }
   `;
-  /*const borderWrapperLeave = keyframes`
+  const borderWrapperLeave = keyframes`
 
     0%{
       background: var(--azuloscuro);
@@ -203,17 +237,15 @@ export const Checkbox = ({ name, onChange, label }) => {
       background: white;
       padding:0.3125rem 0.625rem 0.3125rem 1.875rem;
     }
-  `;*/
+  `;
 
   const checkMarkEnter = keyframes`
 
     0%{
       opacity: 0;
-      transform: translateX(135px);
     }
     100%{
       opacity: 1;
-      transform: translateX(135px);
     }
   `;
   const BorderWrapper = styled.div`
@@ -223,11 +255,19 @@ export const Checkbox = ({ name, onChange, label }) => {
     justify-content: space-between;
     font-size: 0.8125rem;
     padding: 0.3125rem 0.625rem 0.3125rem 1.875rem;
-    ${({ animation }) =>
-      animation &&
-      css`
-        animation: ${borderWrapperEnter} 0.5s forwards;
-      `}
+    ${({ animation }) => {
+      if (animation) {
+        return css`
+          animation: ${borderWrapperEnter} 0.5s forwards;
+        `;
+      } else if (canAnimate && animation === false) {
+        return css`
+          animation: ${borderWrapperLeave} 0.5s forwards;
+        `;
+      } else {
+        return "";
+      }
+    }}
   `;
 
   const InputCheckbox = styled.input`
@@ -241,7 +281,8 @@ export const Checkbox = ({ name, onChange, label }) => {
   `;
   const CheckMark = styled.span`
     position: absolute;
-    left: 0.3125rem;
+    top: 20%;
+    ${({animation}) => animation ? css`right: 3%;` : css`left: 0.3125rem;`}
     height: 1.0625rem;
     width: 1.0625rem;
     background-color: var(--azul);
@@ -252,8 +293,9 @@ export const Checkbox = ({ name, onChange, label }) => {
     background-position: center center;
     background-repeat: no-repeat;
     border: solid 1px #ccc;
-    background-image: ${hover &&
-    "url(data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjQxN3B0IiB2aWV3Qm94PSIwIC00NiA0MTcuODEzMzMgNDE3IiB3aWR0aD0iNDE3cHQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTE1OS45ODgyODEgMzE4LjU4MjAzMWMtMy45ODgyODEgNC4wMTE3MTktOS40Mjk2ODcgNi4yNS0xNS4wODIwMzEgNi4yNXMtMTEuMDkzNzUtMi4yMzgyODEtMTUuMDgyMDMxLTYuMjVsLTEyMC40NDkyMTktMTIwLjQ2ODc1Yy0xMi41LTEyLjUtMTIuNS0zMi43Njk1MzEgMC00NS4yNDYwOTNsMTUuMDgyMDMxLTE1LjA4NTkzOGMxMi41MDM5MDctMTIuNSAzMi43NS0xMi41IDQ1LjI1IDBsNzUuMTk5MjE5IDc1LjIwMzEyNSAyMDMuMTk5MjE5LTIwMy4yMDMxMjVjMTIuNTAzOTA2LTEyLjUgMzIuNzY5NTMxLTEyLjUgNDUuMjUgMGwxNS4wODIwMzEgMTUuMDg1OTM4YzEyLjUgMTIuNSAxMi41IDMyLjc2NTYyNCAwIDQ1LjI0NjA5M3ptMCAwIi8+PC9zdmc+)"};
+    background-image: ${({ hover }) =>
+      hover &&
+      "url(data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjQxN3B0IiB2aWV3Qm94PSIwIC00NiA0MTcuODEzMzMgNDE3IiB3aWR0aD0iNDE3cHQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTE1OS45ODgyODEgMzE4LjU4MjAzMWMtMy45ODgyODEgNC4wMTE3MTktOS40Mjk2ODcgNi4yNS0xNS4wODIwMzEgNi4yNXMtMTEuMDkzNzUtMi4yMzgyODEtMTUuMDgyMDMxLTYuMjVsLTEyMC40NDkyMTktMTIwLjQ2ODc1Yy0xMi41LTEyLjUtMTIuNS0zMi43Njk1MzEgMC00NS4yNDYwOTNsMTUuMDgyMDMxLTE1LjA4NTkzOGMxMi41MDM5MDctMTIuNSAzMi43NS0xMi41IDQ1LjI1IDBsNzUuMTk5MjE5IDc1LjIwMzEyNSAyMDMuMTk5MjE5LTIwMy4yMDMxMjVjMTIuNTAzOTA2LTEyLjUgMzIuNzY5NTMxLTEyLjUgNDUuMjUgMGwxNS4wODIwMzEgMTUuMDg1OTM4YzEyLjUgMTIuNSAxMi41IDMyLjc2NTYyNCAwIDQ1LjI0NjA5M3ptMCAwIi8+PC9zdmc+)"};
     ${({ animation }) =>
       animation &&
       css`
@@ -266,6 +308,7 @@ export const Checkbox = ({ name, onChange, label }) => {
       onClick={(e) => {
         setIsClicked((state) => !state);
         setIsChecked((state) => !state);
+        setCanAnimate((state) => true);
       }}
     >
       <InputCheckbox
@@ -274,19 +317,10 @@ export const Checkbox = ({ name, onChange, label }) => {
         type="checkbox"
         onChange={onChange}
       />
-      <BorderWrapper
-        animation={isClicked}
-        onMouseEnter={() => {
-          setHover(true);
-        }}
-        onMouseLeave={() => {
-          if (!isClicked) {
-            //setHover(false);
-            console.info("hovered");
-          }
-        }}
-      >
-        <CheckMark animation={isClicked} />
+      <BorderWrapper animation={isClicked}>
+        <CheckMarkWrapper isClicked={isClicked}>
+          <CheckMark animation={isClicked} />
+        </CheckMarkWrapper>
         <CheckboxLabel>{label}</CheckboxLabel>
       </BorderWrapper>
     </CheckboxContainer>
