@@ -20,6 +20,9 @@ export default function Form() {
   const [secondStepData, setSecondStepData] = useState({});
   const [thirdStepData, setThirdStepData] = useState({});
   const [photos, setPhotos] = useState([]);
+  const [brands, setBrands] = useState([]);
+  const [cars, setCars] = useState([]);
+  const [currentModels, setCurrentModels] = useState([]);
 
   const days = Array(31).fill(null);
 
@@ -36,6 +39,35 @@ export default function Form() {
   useEffect(() => {
     console.info("this is the file", thirdStepData.photo);
   }, [thirdStepData]);
+
+  useEffect(() => {
+    fetch(
+      "https://private-anon-24f161c43b-carsapi1.apiary-mock.com/manufacturers"
+    )
+      .then((res) => res.json())
+      .then((res) => {
+        setBrands(res.map((brand) => brand.name));
+      });
+    fetch("https://private-anon-24f161c43b-carsapi1.apiary-mock.com/cars")
+      .then((res) => res.json())
+      .then((res) => {
+        setCars(res);
+      });
+  }, []);
+
+  useEffect(() => {
+    if (brands.length !== 0) {
+      setCurrentModels(
+        cars
+          .map((car) => {
+            if (car.make === brands[0]) {
+              return car.model;
+            }
+          })
+          .filter((data) => data !== undefined)
+      );
+    }
+  }, [cars, brands]);
 
   return (
     <Wrapper>
@@ -117,11 +149,25 @@ export default function Form() {
                 </Box>
                 <Box>
                   <Label>Marca</Label>
-                  <SelectElement options={["BMW", "Ford", "Toyota"]} />
+                  <SelectElement
+                    onChange={(e) => {
+                      console.info(e.target);
+                      setCurrentModels(
+                        cars
+                          .map((car) => {
+                            if (car.make === e.target.value) {
+                              return car.model;
+                            }
+                          })
+                          .filter((data) => data !== undefined)
+                      );
+                    }}
+                    options={brands}
+                  />
                 </Box>
                 <Box mt="1rem">
                   <Label>Modelo</Label>
-                  <SelectElement options={["BMW", "Ford", "Toyota"]} />
+                  <SelectElement options={currentModels} />
                 </Box>
                 <Input
                   label="Combustible"

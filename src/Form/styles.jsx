@@ -110,9 +110,9 @@ export const Select = styled.select`
   ${getRedundantStyles()}
   ${({ margin }) => (margin ? `margin: ${margin};` : "margin-top: 0.5rem;")}
 `;
-export const SelectElement = ({ options }) => {
+export const SelectElement = ({ onChange, options }) => {
   return (
-    <Select margin="0.5rem 0 0 0" name="" id="">
+    <Select onChange={onChange} margin="0.5rem 0 0 0" name="" id="">
       {options.map((option, index) => (
         <option key={index} value={option}>
           {option}
@@ -282,7 +282,14 @@ export const Checkbox = ({ name, onChange, label }) => {
   const CheckMark = styled.span`
     position: absolute;
     top: 20%;
-    ${({animation}) => animation ? css`right: 3%;` : css`left: 0.3125rem;`}
+    ${({ animation }) =>
+      animation
+        ? css`
+            right: 3%;
+          `
+        : css`
+            left: 0.3125rem;
+          `}
     height: 1.0625rem;
     width: 1.0625rem;
     background-color: var(--azul);
