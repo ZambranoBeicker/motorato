@@ -18,6 +18,8 @@ const getRedundantStyles = () => {
 export const Box = styled.div`
   position: ${({ position }) => (position ? position : "static")};
   display: ${({ display }) => (display ? display : "block")};
+  justify-content: ${({ justifyContent }) =>
+    justifyContent ? justifyContent : "normal"};
   margin-top: ${({ mt }) => (mt ? mt : "0")};
   margin-right: ${({ mr }) => (mr ? mr : "0")};
   margin-bottom: ${({ mb }) => (mb ? mb : "0")};

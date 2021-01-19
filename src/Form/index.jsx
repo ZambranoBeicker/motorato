@@ -14,6 +14,7 @@ import {
   FormElement,
 } from "./styles.jsx";
 import Wizard from "./Wizard";
+import ubigeos from "../data/ubigeo.json";
 
 export default function Form() {
   const [firstStepData, setFirstStepData] = useState({});
@@ -23,6 +24,9 @@ export default function Form() {
   const [brands, setBrands] = useState([]);
   const [cars, setCars] = useState([]);
   const [currentModels, setCurrentModels] = useState([]);
+  const [departments, setDepartments] = useState([]);
+  const [provinces, setProvinces] = useState([]);
+  const [distrits, setDistrits] = useState([]);
 
   const days = Array(31).fill(null);
 
@@ -53,6 +57,18 @@ export default function Form() {
       .then((res) => {
         setCars(res);
       });
+
+    setDepartments(
+      Array.from(
+        new Set(
+          ubigeos
+            .map((ubigeo) => {
+              return ubigeo.departamento;
+            })
+            .filter((data) => data !== undefined)
+        )
+      )
+    );
   }, []);
 
   useEffect(() => {
@@ -282,44 +298,27 @@ export default function Form() {
                 <Box mt="2rem">
                   <Label>Ubicación</Label>
 
-                  <Box display="flex" flexWrap="wrap">
-                    <Box>
-                      <Box w="100%">
-                        <Label>Departamento</Label>
-                      </Box>
-                      <InputElement
-                        type="text"
-                        name="department"
-                        onChange={(e) => onChangeHandler(e, setThirdStepData)}
-                        value={thirdStepData.department}
-                        placeholder="Enter text"
-                      />
+                  <Box
+                    w="100%"
+                    justifyContent="space-between"
+                    display="flex"
+                    flexWrap="wrap"
+                  >
+                    <Box w="30%">
+                      {" "}
+                      <SelectElement options={departments} />{" "}
                     </Box>
-
-                    <Box>
-                      <Box w="100%">
-                        <Label>Provincia</Label>
-                      </Box>
-                      <InputElement
-                        type="text"
-                        name="province"
-                        onChange={(e) => onChangeHandler(e, setThirdStepData)}
-                        value={thirdStepData.province}
-                        placeholder="Enter text"
-                      />
+                    <Box w="30%">
+                      {" "}
+                      <SelectElement
+                        options={["ajdn", "lskdnvsd", "lajdn"]}
+                      />{" "}
                     </Box>
-
-                    <Box>
-                      <Box w="100%">
-                        <Label>Distrito</Label>
-                      </Box>
-                      <InputElement
-                        type="text"
-                        name="distrite"
-                        onChange={(e) => onChangeHandler(e, setThirdStepData)}
-                        value={thirdStepData.distrite}
-                        placeholder="Enter text"
-                      />
+                    <Box w="30%">
+                      {" "}
+                      <SelectElement
+                        options={["ajdn", "lskdnvsd", "lajdn"]}
+                      />{" "}
                     </Box>
                   </Box>
                 </Box>
