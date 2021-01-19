@@ -63,7 +63,9 @@ export default function Form() {
         new Set(
           ubigeos
             .map((ubigeo) => {
-              return ubigeo.departamento;
+              if (ubigeo.departamento !== "LIMA") {
+                return ubigeo.departamento;
+              }
             })
             .filter((data) => data !== undefined)
         )
@@ -306,7 +308,10 @@ export default function Form() {
                   >
                     <Box w="30%">
                       {" "}
-                      <SelectElement options={departments} />{" "}
+                      <SelectElement
+                        firstOption="LIMA"
+                        options={departments}
+                      />{" "}
                     </Box>
                     <Box w="30%">
                       {" "}

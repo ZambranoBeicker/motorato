@@ -112,9 +112,10 @@ export const Select = styled.select`
   ${getRedundantStyles()}
   ${({ margin }) => (margin ? `margin: ${margin};` : "margin-top: 0.5rem;")}
 `;
-export const SelectElement = ({ onChange, options }) => {
+export const SelectElement = ({ onChange, options, firstOption }) => {
   return (
     <Select onChange={onChange} margin="0.5rem 0 0 0" name="" id="">
+      {firstOption && <option>{firstOption}</option>}
       {options.map((option, index) => (
         <option key={index} value={option}>
           {option}
