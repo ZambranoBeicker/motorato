@@ -38,7 +38,6 @@ export default function Form() {
 
   const onChangeHandler = (e, setState) => {
     setState((state) => {
-      console.info("This is the last state", state);
       return {
         ...state,
         [e.target.name]: e.target.value,
@@ -111,10 +110,7 @@ export default function Form() {
   }, []);
 
   useEffect(() => {
-    console.info("Provinces[0]: ", provinces[0]);
     if (provincesRef.current !== null) {
-      console.info(provincesRef.current);
-
       setDistrits(
         Array.from(
           new Set(
@@ -395,7 +391,6 @@ export default function Form() {
                       {" "}
                       <SelectElement
                         onChange={(e) => {
-                          console.info(provinces[0]);
                           setProvinces(
                             Array.from(
                               new Set(
@@ -422,8 +417,6 @@ export default function Form() {
                         ref={provincesRef}
                         options={provinces}
                         onChange={(e) => {
-                          console.log("Provinces changed");
-
                           setDistrits(
                             Array.from(
                               new Set(
@@ -458,9 +451,6 @@ export default function Form() {
                           alert("Solo puedes guardar hasta 20 imágenes");
                           e.preventDefault();
                         } else {
-                          console.info(e.target);
-                          console.info(e.target.files.length);
-                          console.log("Changed");
                           setPhotos([...e.target.files]);
                         }
                       }}
