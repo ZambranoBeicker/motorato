@@ -330,7 +330,7 @@ export default function Form() {
                   name="year"
                   onChange={(e) => onChangeHandler(e, setSecondStepData)}
                   value={secondStepData.year}
-                  placeholder="Enter the brand of your car"
+                  placeholder="El año de tu vehículo"
                 />
                 <Input
                   label="Kilometraje"
@@ -363,20 +363,19 @@ export default function Form() {
                   cols="30"
                   rows="10"
                   value={secondStepData.description}
-                  placeholder="Enter something"
+                  placeholder="Coloca tu descripción"
                 />
               </SeparationWrapper>
             </>,
             <>
               <Box w="100%">
-                <Price
+                <Input
                   label="Precio"
-                  button="Precio"
                   type="text"
                   name="price"
-                  onChange={(e) => onChangeHandler(e, setThirdStepData)}
-                  value={thirdStepData.price}
-                  placeholder="Enter the price"
+                  onChange={(e) => onChangeHandler(e, setSecondStepData)}
+                  value={secondStepData.mileage}
+                  placeholder="Coloca tu precio en dolares"
                 />
                 <Box mt="2rem">
                   <Label>Ubicación</Label>
@@ -468,18 +467,8 @@ export default function Form() {
                       name="videoLink"
                       onChange={(e) => onChangeHandler(e, setThirdStepData)}
                       value={thirdStepData.videoLink}
-                      placeholder="Enter your video url"
+                      placeholder="El link de tu video de youtube"
                     />
-                  </Box>
-                  <Box>
-                    <Button
-                      margin="1rem 0 0 0"
-                      color="white"
-                      background="var(--azul)"
-                      next
-                    >
-                      Subir Video
-                    </Button>
                   </Box>
                 </Box>
               </Box>
