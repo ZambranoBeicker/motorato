@@ -179,9 +179,7 @@ const CheckMarkContainer = styled.div`
 const CheckMarkWrapper = ({ children, isClicked }) => {
   const [hover, setHover] = useState(false);
 
-  useEffect(() => {
-    console.info("hovered");
-  }, [hover]);
+  useEffect(() => {}, [hover]);
 
   return (
     <CheckMarkContainer
@@ -223,9 +221,7 @@ export const Checkbox = ({ name, onChange, label }) => {
   useEffect(() => {
     checkboxRef.current.checked = isChecked;
   }, [isChecked]);
-  useEffect(() => {
-    console.info("Clicked");
-  }, [isClicked]);
+  useEffect(() => {}, [isClicked]);
 
   const CheckboxContainer = styled.div`
     position: relative;

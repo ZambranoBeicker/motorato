@@ -1,51 +1,118 @@
-[
-  "Retrovisores Eléctricos",
+{
+  "labels": [
+    "Retrovisores Eléctricos",
 
-  "Neblineros",
+    "Neblineros",
 
-  "Aire Acondicionado",
+    "Aire Acondicionado",
 
-  "Full Equipo",
+    "Full Equipo",
 
-  "Computadora de abordo",
+    "Computadora de abordo",
 
-  "Parlantes,Bajos",
+    "Parlantes,Bajos",
 
-  "Radio CD",
+    "Radio CD",
 
-  "Radio MP3",
+    "Radio MP3",
 
-  "Aros",
+    "Aros",
 
-  "Aros de Aleación",
+    "Aros de Aleación",
 
-  "Parrilla",
+    "Parrilla",
 
-  "Luces Halógenas",
+    "Luces Halógenas",
 
-  "Localizador (GPS)",
+    "Localizador (GPS)",
 
-  "Airbag",
+    "Airbag",
 
-  "Láminas de Seguridad",
+    "Láminas de Seguridad",
 
-  "Blindado",
+    "Blindado",
 
-  "Faros antiniebla delantero",
+    "Faros antiniebla delantero",
 
-  "Faros antiniebla traseros",
+    "Faros antiniebla traseros",
 
-  "Inmovilizador de motor",
+    "Inmovilizador de motor",
 
-  "Repartidor electrónico de frenado",
+    "Repartidor electrónico de frenado",
 
-  "Frenos ABS",
+    "Frenos ABS",
 
-  "Alarma",
+    "Alarma",
 
-  "Sunroof",
+    "Sunroof",
 
-  "Asientos de cuero",
+    "Asientos de cuero",
 
-  "Climatizador"
-]
+    "Climatizador",
+    "Bluetooth",
+    "Cargador USB",
+    "Lunas polarizadas",
+    "Calentador de asiento",
+    "Cup holder",
+    "Pads de piso",
+    "Llanta de repuesto con seguro"
+  ],
+  "names": [
+    "electricMirrors",
+
+    "foggers",
+
+    "airConditioning",
+
+    "fullTeam",
+
+    "onBoardComputer",
+
+    "speakersBasses",
+
+    "radioCd",
+
+    "mp3Radio",
+
+    "hoops",
+
+    "alloyHoops",
+
+    "grill",
+
+    "halogenLights",
+
+    "gpsLocator",
+
+    "airbag",
+
+    "securityFilms",
+
+    "armored",
+
+    "frontFogLights",
+
+    "rearFogLights",
+
+    "engineImmobilizer",
+
+    "electronicBrakeDispatcher",
+
+    "absBrakes",
+
+    "alarm",
+
+    "sunroof",
+
+    "leatherSeats",
+
+    "airConditioner",
+    "bluetooth",
+    "usbCharger",
+    "polarizedMoons",
+    "seatHeater",
+    "cupHolder",
+    "floorPads",
+    "spareTireWithLock"
+  ]
+}

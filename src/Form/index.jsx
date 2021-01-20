@@ -109,7 +109,17 @@ export default function Form() {
       transmission: "Automática",
       carPlate: "Par",
     });
+
+    let checkboxesNames = {};
+
+    checkboxesData.names.forEach((name) => {
+      checkboxesNames[name] = false;
+    });
+
+    setFourStepData({ ...checkboxesNames });
   }, []);
+
+  useEffect(() => {}, [fourStepData]);
 
   useEffect(() => {
     if (provincesRef.current !== null) {
@@ -152,6 +162,7 @@ export default function Form() {
             vehicle: {
               main: secondStepData,
               commercial: thirdStepData,
+              accesories: fourStepData,
             },
             files: [...photos],
           }}
@@ -482,10 +493,13 @@ export default function Form() {
                 </Box>
 
                 <Box flexWrap="wrap" display="flex">
-                  {checkboxesData.map((checkboxLabel) => {
+                  {checkboxesData.labels.map((label, index) => {
                     return (
                       <Box mt="1rem">
-                        <Checkbox label={checkboxLabel} />
+                        <Checkbox
+                          name={checkboxesData.names[index]}
+                          label={label}
+                        />
                       </Box>
                     );
                   })}
