@@ -120,9 +120,16 @@ export const Select = styled.select`
   ${({ margin }) => (margin ? `margin: ${margin};` : "margin-top: 0.5rem;")}
 `;
 export const SelectElement = forwardRef(
-  ({ onChange, options, firstOption }, ref) => {
+  ({ onChange, options, firstOption, onLoad }, ref) => {
     return (
-      <Select ref={ref} onChange={onChange} margin="0.5rem 0 0 0" name="" id="">
+      <Select
+        ref={ref}
+        onLoad={onLoad}
+        onChange={onChange}
+        margin="0.5rem 0 0 0"
+        name=""
+        id=""
+      >
         {firstOption && <option>{firstOption}</option>}
         {options.map((option, index) => (
           <option key={index} value={option}>

@@ -28,6 +28,9 @@ export default function Form() {
   const [provinces, setProvinces] = useState([]);
   const [distrits, setDistrits] = useState([]);
 
+  const brandsRef = createRef();
+  const modelsRef = createRef();
+  const carPlateRef = createRef();
   const provincesRef = createRef();
   const departmentsRef = createRef();
 
@@ -42,10 +45,6 @@ export default function Form() {
       };
     });
   };
-
-  useEffect(() => {
-    console.info("this is the file", thirdStepData.photo);
-  }, [thirdStepData]);
 
   useEffect(() => {
     fetch(
@@ -101,6 +100,14 @@ export default function Form() {
         )
       )
     );
+
+    setSecondStepData({
+      ...secondStepData,
+      brand: "CHRYSTLER",
+      model: "200",
+      transmission: "Automática",
+      carPlate: "Par",
+    });
   }, []);
 
   useEffect(() => {
@@ -219,8 +226,8 @@ export default function Form() {
                 <Box>
                   <Label>Marca</Label>
                   <SelectElement
+                    ref={brandsRef}
                     onChange={(e) => {
-                      console.info(e.target);
                       setCurrentModels(
                         cars
                           .map((car) => {
@@ -230,13 +237,27 @@ export default function Form() {
                           })
                           .filter((data) => data !== undefined)
                       );
+
+                      setSecondStepData({
+                        ...secondStepData,
+                        brand: e.target.value,
+                      });
                     }}
                     options={brands}
                   />
                 </Box>
                 <Box mt="1rem">
                   <Label>Modelo</Label>
-                  <SelectElement options={currentModels} />
+                  <SelectElement
+                    ref={modelsRef}
+                    options={currentModels}
+                    onChange={(e) => {
+                      setSecondStepData({
+                        ...secondStepData,
+                        model: e.target.value,
+                      });
+                    }}
+                  />
                 </Box>
                 <Input
                   label="Combustible"
@@ -252,7 +273,7 @@ export default function Form() {
                   name="steeringWheel"
                   onChange={(e) => onChangeHandler(e, setSecondStepData)}
                   value={secondStepData.steeringWheel}
-                  placeholder=""
+                  placeholder="Tipo de timón"
                 />
                 <Input
                   label="Número de puertas"
@@ -268,7 +289,7 @@ export default function Form() {
                   name="color"
                   onChange={(e) => onChangeHandler(e, setSecondStepData)}
                   value={secondStepData.color}
-                  placeholder=""
+                  placeholder="Azúl, rojo..."
                 />
                 <Input
                   label="Motor (Cilindrada)"
@@ -276,7 +297,7 @@ export default function Form() {
                   name="engine"
                   onChange={(e) => onChangeHandler(e, setSecondStepData)}
                   value={secondStepData.engine}
-                  placeholder="Enter the brand of your car"
+                  placeholder="cc"
                 />
                 <Input
                   label="Tipo de vehículo"
@@ -284,16 +305,24 @@ export default function Form() {
                   name="type"
                   onChange={(e) => onChangeHandler(e, setSecondStepData)}
                   value={secondStepData.type}
-                  placeholder="Enter the brand of your car"
+                  placeholder="Carro, camioneta, etc..."
                 />
-                <Input
-                  label="Tipo de Transmisión"
-                  type="text"
-                  name="transmissionType"
-                  onChange={(e) => onChangeHandler(e, setSecondStepData)}
-                  value={secondStepData.transmissionType}
-                  placeholder="Enter the brand of your car"
-                />
+                <Box mt="1rem">
+                  <Label>Tipo de Transmisión</Label>
+                  <SelectElement
+                    onChange={(e) => {
+                      setSecondStepData({
+                        ...secondStepData,
+                        transmission: e.target.value,
+                      });
+                    }}
+                    options={[
+                      "Automática",
+                      "Automática - Secuencial",
+                      "Mecánica",
+                    ]}
+                  />
+                </Box>
               </Box>
               <Box mt="1.75rem">
                 <Box mb="-1rem">
@@ -313,16 +342,21 @@ export default function Form() {
                   name="mileage"
                   onChange={(e) => onChangeHandler(e, setSecondStepData)}
                   value={secondStepData.mileage}
-                  placeholder="Enter the brand of your car"
+                  placeholder="km"
                 />
-                <Input
-                  label="Tipo de Placa"
-                  type="text"
-                  name="placa"
-                  onChange={(e) => onChangeHandler(e, setSecondStepData)}
-                  value={secondStepData.referenceCode}
-                  placeholder="Enter the brand of your car"
-                />
+                <Box mt="1rem">
+                  <Label>Placa</Label>
+                  <SelectElement
+                    ref={carPlateRef}
+                    options={["Par", "Impar"]}
+                    onChange={(e) => {
+                      setSecondStepData({
+                        ...secondStepData,
+                        carPlate: e.target.value,
+                      });
+                    }}
+                  />
+                </Box>
               </Box>
               <SeparationWrapper>
                 <Label>Descripción</Label>
