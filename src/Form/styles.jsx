@@ -1,4 +1,11 @@
-import { cloneElement, useState, createRef, useRef, useEffect } from "react";
+import {
+  forwardRef,
+  cloneElement,
+  useState,
+  createRef,
+  useRef,
+  useEffect,
+} from "react";
 import styled, { css, keyframes } from "styled-components";
 
 const getRedundantStyles = () => {
@@ -112,18 +119,20 @@ export const Select = styled.select`
   ${getRedundantStyles()}
   ${({ margin }) => (margin ? `margin: ${margin};` : "margin-top: 0.5rem;")}
 `;
-export const SelectElement = ({ onChange, options, firstOption }) => {
-  return (
-    <Select onChange={onChange} margin="0.5rem 0 0 0" name="" id="">
-      {firstOption && <option>{firstOption}</option>}
-      {options.map((option, index) => (
-        <option key={index} value={option}>
-          {option}
-        </option>
-      ))}
-    </Select>
-  );
-};
+export const SelectElement = forwardRef(
+  ({ onChange, options, firstOption }, ref) => {
+    return (
+      <Select ref={ref} onChange={onChange} margin="0.5rem 0 0 0" name="" id="">
+        {firstOption && <option>{firstOption}</option>}
+        {options.map((option, index) => (
+          <option key={index} value={option}>
+            {option}
+          </option>
+        ))}
+      </Select>
+    );
+  }
+);
 
 export const Price = ({ label, button, placeholder, type }) => {
   return (

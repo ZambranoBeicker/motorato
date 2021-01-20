@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { createRef, useState, useEffect } from "react";
 import {
   Checkbox,
   SelectElement,
@@ -27,6 +27,9 @@ export default function Form() {
   const [departments, setDepartments] = useState([]);
   const [provinces, setProvinces] = useState([]);
   const [distrits, setDistrits] = useState([]);
+
+  const provincesRef = createRef();
+  const departmentsRef = createRef();
 
   const days = Array(31).fill(null);
 
@@ -71,7 +74,55 @@ export default function Form() {
         )
       )
     );
+
+    setProvinces(
+      Array.from(
+        new Set(
+          ubigeos
+            .map((ubigeo) => {
+              if (ubigeo.departamento === "LIMA") {
+                return ubigeo.provincia;
+              }
+            })
+            .filter((data) => data !== undefined)
+        )
+      )
+    );
+    setDistrits(
+      Array.from(
+        new Set(
+          ubigeos
+            .map((ubigeo) => {
+              if (ubigeo.departamento === "LIMA") {
+                return ubigeo.distrito;
+              }
+            })
+            .filter((data) => data !== undefined)
+        )
+      )
+    );
   }, []);
+
+  useEffect(() => {
+    console.info("Provinces[0]: ", provinces[0]);
+    if (provincesRef.current !== null) {
+      console.info(provincesRef.current);
+
+      setDistrits(
+        Array.from(
+          new Set(
+            ubigeos
+              .map((ubigeo) => {
+                if (ubigeo.provincia === provincesRef.current.value) {
+                  return ubigeo.distrito;
+                }
+              })
+              .filter((data) => data !== undefined)
+          )
+        )
+      );
+    }
+  }, [provinces]);
 
   useEffect(() => {
     if (brands.length !== 0) {
@@ -309,21 +360,55 @@ export default function Form() {
                     <Box w="30%">
                       {" "}
                       <SelectElement
-                        firstOption="LIMA"
+                        onChange={(e) => {
+                          console.info(provinces[0]);
+                          setProvinces(
+                            Array.from(
+                              new Set(
+                                ubigeos
+                                  .map((ubigeo) => {
+                                    if (
+                                      ubigeo.departamento === e.target.value
+                                    ) {
+                                      return ubigeo.provincia;
+                                    }
+                                  })
+                                  .filter((data) => data !== undefined)
+                              )
+                            )
+                          );
+                        }}
                         options={departments}
+                        firstOption="LIMA"
                       />{" "}
                     </Box>
                     <Box w="30%">
                       {" "}
                       <SelectElement
-                        options={["ajdn", "lskdnvsd", "lajdn"]}
+                        ref={provincesRef}
+                        options={provinces}
+                        onChange={(e) => {
+                          console.log("Provinces changed");
+
+                          setDistrits(
+                            Array.from(
+                              new Set(
+                                ubigeos
+                                  .map((ubigeo) => {
+                                    if (ubigeo.provincia === e.target.value) {
+                                      return ubigeo.distrito;
+                                    }
+                                  })
+                                  .filter((data) => data !== undefined)
+                              )
+                            )
+                          );
+                        }}
                       />{" "}
                     </Box>
                     <Box w="30%">
                       {" "}
-                      <SelectElement
-                        options={["ajdn", "lskdnvsd", "lajdn"]}
-                      />{" "}
+                      <SelectElement options={distrits} />{" "}
                     </Box>
                   </Box>
                 </Box>
