@@ -44,6 +44,10 @@ export const Wrapper = styled.div`
   padding-left: 0.9375rem;
   padding-right: 0.9375rem;
   float: left;
+  @media screen and (max-width: 480px) {
+    width: 100%;
+    margin: 0;
+  }
 `;
 
 export const FormElement = styled.form`

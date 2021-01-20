@@ -352,6 +352,12 @@ form  input[type="checkbox"]{
               background-color: #000;
               color: #fff;
             }
+
+@media screen and (max-width: 480px){
+      html{
+            font-size: 14px;
+      }
+}
 `;
 function App() {
   return (

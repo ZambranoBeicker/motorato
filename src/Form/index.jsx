@@ -15,11 +15,13 @@ import {
 } from "./styles.jsx";
 import Wizard from "./Wizard";
 import ubigeos from "../data/ubigeo.json";
+import checkboxesData from "../data/checkboxesData.json";
 
 export default function Form() {
   const [firstStepData, setFirstStepData] = useState({});
   const [secondStepData, setSecondStepData] = useState({});
   const [thirdStepData, setThirdStepData] = useState({});
+  const [fourStepData, setFourStepData] = useState({});
   const [photos, setPhotos] = useState([]);
   const [brands, setBrands] = useState([]);
   const [cars, setCars] = useState([]);
@@ -480,90 +482,13 @@ export default function Form() {
                 </Box>
 
                 <Box flexWrap="wrap" display="flex">
-                  <Box mt="1rem">
-                    <Checkbox label="Retrovisores Eléctricos" />
-                  </Box>
-
-                  <Box mt="1rem">
-                    <Checkbox label="Neblineros" />
-                  </Box>
-
-                  <Box mt="1rem">
-                    <Checkbox label="Aire Acondicionado" />
-                  </Box>
-
-                  <Box mt="1rem">
-                    <Checkbox label="Full Equipo" />
-                  </Box>
-
-                  <Box mt="1rem">
-                    <Checkbox label="Computadora de abordo" />
-                  </Box>
-                  <Box mt="1rem">
-                    <Checkbox label="Parlantes/Bajos" />
-                  </Box>
-                  <Box mt="1rem">
-                    <Checkbox label="Radio CD" />
-                  </Box>
-                  <Box mt="1rem">
-                    <Checkbox label="Radio MP3" />
-                  </Box>
-                  <Box mt="1rem">
-                    <Checkbox label="Aros" />
-                  </Box>
-
-                  <Box mt="1rem">
-                    <Checkbox label="Aros de Aleación" />
-                  </Box>
-
-                  <Box mt="1rem">
-                    <Checkbox label="Parrilla" />
-                  </Box>
-                  <Box mt="1rem">
-                    <Checkbox label="Luces Halógenas" />
-                  </Box>
-
-                  <Box mt="1rem">
-                    <Checkbox label="Localizador (GPS)" />
-                  </Box>
-
-                  <Box mt="1rem">
-                    <Checkbox label="Airbag" />
-                  </Box>
-
-                  <Box mt="1rem">
-                    <Checkbox label="Láminas de Seguridad" />
-                  </Box>
-                  <Box mt="1rem">
-                    <Checkbox label="Blindado" />
-                  </Box>
-                  <Box mt="1rem">
-                    <Checkbox label="Faros antiniebla delantero" />
-                  </Box>
-                  <Box mt="1rem">
-                    <Checkbox label="Faros antiniebla traseros" />
-                  </Box>
-                  <Box mt="1rem">
-                    <Checkbox label="Inmovilizador de motor" />
-                  </Box>
-                  <Box mt="1rem">
-                    <Checkbox label="Repartidor electrónico de frenado" />
-                  </Box>
-                  <Box mt="1rem">
-                    <Checkbox label="Frenos ABS" />
-                  </Box>
-                  <Box mt="1rem">
-                    <Checkbox label="Alarma" />
-                  </Box>
-                  <Box mt="1rem">
-                    <Checkbox label="Sunroof" />
-                  </Box>
-                  <Box mt="1rem">
-                    <Checkbox label="Asientos de cuero" />
-                  </Box>
-                  <Box mt="1rem">
-                    <Checkbox label="Climatizador" />
-                  </Box>
+                  {checkboxesData.map((checkboxLabel) => {
+                    return (
+                      <Box mt="1rem">
+                        <Checkbox label={checkboxLabel} />
+                      </Box>
+                    );
+                  })}
                 </Box>
               </Box>
             </>,
