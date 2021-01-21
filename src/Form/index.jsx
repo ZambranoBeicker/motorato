@@ -2,14 +2,12 @@ import { createRef, useState, useEffect } from "react";
 import {
   Checkbox,
   SelectElement,
-  Price,
   Label,
   Textarea,
   SeparationWrapper,
   Wrapper,
   Input,
   Box,
-  Button,
   InputElement,
   FormElement,
 } from "./styles.jsx";
@@ -308,14 +306,30 @@ export default function Form() {
                   value={secondStepData.engine}
                   placeholder="cc"
                 />
-                <Input
-                  label="Tipo de vehículo"
-                  type="text"
-                  name="type"
-                  onChange={(e) => onChangeHandler(e, setSecondStepData)}
-                  value={secondStepData.type}
-                  placeholder="Carro, camioneta, etc..."
-                />
+                <Box mt="1rem">
+                  <Label>Tipo de Vehículo</Label>
+                  <SelectElement
+                    onChange={(e) => {
+                      setSecondStepData({
+                        ...secondStepData,
+                        type: e.target.value,
+                      });
+                    }}
+                    options={[
+                      "Micro",
+                      "Sedan",
+                      "Natchbark",
+                      "Camioneta",
+                      "Camioneta (Pick Up)",
+                      "Van",
+                      "Coupe",
+                      "Minivan",
+                      "Crossover",
+                      "Descapotable",
+                      "Deportivo",
+                    ]}
+                  />
+                </Box>
                 <Box mt="1rem">
                   <Label>Tipo de Transmisión</Label>
                   <SelectElement
