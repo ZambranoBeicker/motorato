@@ -499,6 +499,12 @@ export default function Form() {
                         <Checkbox
                           name={checkboxesData.names[index]}
                           label={label}
+                          onChange={(ref) => {
+                            setFourStepData({
+                              ...fourStepData,
+                              [ref.name]: [ref.checked],
+                            });
+                          }}
                         />
                       </Box>
                     );
