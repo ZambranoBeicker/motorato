@@ -34,7 +34,6 @@ export default function Form() {
   const provincesRef = createRef();
   const departmentsRef = createRef();
 
-  const days = Array(31).fill(null);
 
   const onChangeHandler = (e, setState) => {
     setState((state) => {
@@ -106,6 +105,13 @@ export default function Form() {
       model: "200",
       transmission: "Automática",
       carPlate: "Par",
+      type: "Micro",
+    });
+    setThirdStepData({
+      ...secondStepData,
+      department: "LIMA",
+      province: "CAÑETE",
+      distrit: "PACARAN",
     });
 
     let checkboxesNames = {};
@@ -309,6 +315,7 @@ export default function Form() {
                 <Box mt="1rem">
                   <Label>Tipo de Vehículo</Label>
                   <SelectElement
+                    ref={vehicleTypeRef}
                     onChange={(e) => {
                       setSecondStepData({
                         ...secondStepData,
@@ -416,6 +423,7 @@ export default function Form() {
                     <Box w="30%">
                       {" "}
                       <SelectElement
+                        ref={departmentsRef}
                         onChange={(e) => {
                           setProvinces(
                             Array.from(
