@@ -33,7 +33,7 @@ export default function Form() {
   const carPlateRef = createRef();
   const provincesRef = createRef();
   const departmentsRef = createRef();
-
+  const vehicleTypeRef = createRef();
 
   const onChangeHandler = (e, setState) => {
     setState((state) => {
@@ -204,11 +204,11 @@ export default function Form() {
                 value={firstStepData.phone}
                 placeholder="Tu número de teléfono"
               />
-              <Box>
+              <Box mt="0.625rem">
                 <Box>
                   <Label>Documento</Label>
                 </Box>
-                <Box display="flex" mt="0.625rem">
+                <Box display="flex">
                   <Box w="30%" mr="auto">
                     <SelectElement
                       options={["DNI", "Pasaporte", "Carnet De Extranjería"]}
