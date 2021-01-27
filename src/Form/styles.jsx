@@ -123,27 +123,6 @@ export const Select = styled.select`
   ${({ margin }) => (margin ? `margin: ${margin};` : "margin-top: 0.5rem;")}
 `;
 
-const Option = ({ children, value, key }) => {
-  const [content, setContent] = useState(children);
-
-  useEffect(() => {
-    setContent((content) => {
-      if (content.indexOf("-") >= 0) {
-        const replacedContent = content.replace("-", " ");
-        return;
-      }
-
-      return content[0].toUpperCase() + content.slice(1);
-    });
-  }, []);
-
-  return (
-    <option value={value} key={key}>
-      {content}
-    </option>
-  );
-};
-
 export const SelectElement = forwardRef(
   ({ onChange, options, firstOption, onLoad }, ref) => {
     return (
@@ -157,9 +136,9 @@ export const SelectElement = forwardRef(
       >
         {firstOption && <option>{firstOption}</option>}
         {options.map((option, index) => (
-          <Option key={index} value={option}>
+          <option key={index} value={option}>
             {option}
-          </Option>
+          </option>
         ))}
       </Select>
     );

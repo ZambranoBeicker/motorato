@@ -50,7 +50,35 @@ export default function Form() {
     )
       .then((res) => res.json())
       .then((res) => {
-        setBrands(res.map((brand) => brand.name));
+        setBrands(
+          res
+            .map((brand) => brand.name.replace("-", " ").toUpperCase())
+            .filter((brand) => {
+              switch (brand) {
+                case "GMC":
+                  return false;
+                  break;
+                case "LINCOLN":
+                  return false;
+                  break;
+                case "ACURA":
+                  return false;
+                  break;
+                case "INFITINY":
+                  return false;
+                  break;
+                case "SCION":
+                  return false;
+                  break;
+                case "BUIK":
+                  return false;
+                  break;
+                default:
+                  console.info("Switch statement is true");
+                  return true;
+              }
+            })
+        );
       });
     fetch("https://private-anon-24f161c43b-carsapi1.apiary-mock.com/cars")
       .then((res) => res.json())
@@ -148,8 +176,11 @@ export default function Form() {
       setCurrentModels(
         cars
           .map((car) => {
-            if (car.make === brands[0]) {
-              return car.model;
+            if (
+              car.make.replace("-", " ") ===
+              brands[0].replace("-", " ").toLowerCase()
+            ) {
+              return car.model.toUpperCase();
             }
           })
           .filter((data) => data !== undefined)
@@ -244,8 +275,11 @@ export default function Form() {
                       setCurrentModels(
                         cars
                           .map((car) => {
-                            if (car.make === e.target.value) {
-                              return car.model;
+                            if (
+                              car.make.replace("-", " ") ===
+                              e.target.value.toLowerCase()
+                            ) {
+                              return car.model.replace("-", " ").toUpperCase();
                             }
                           })
                           .filter((data) => data !== undefined)
@@ -265,6 +299,7 @@ export default function Form() {
                     ref={modelsRef}
                     options={currentModels}
                     onChange={(e) => {
+                      console.log(currentModels);
                       setSecondStepData({
                         ...secondStepData,
                         model: e.target.value,
