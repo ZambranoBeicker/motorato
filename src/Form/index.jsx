@@ -14,6 +14,7 @@ import {
 import Wizard from "./Wizard";
 import ubigeos from "../data/ubigeo.json";
 import checkboxesData from "../data/checkboxesData.json";
+import carsData from "../data/carsData.json";
 
 export default function Form() {
   const [firstStepData, setFirstStepData] = useState({});
@@ -74,10 +75,10 @@ export default function Form() {
                   return false;
                   break;
                 default:
-                  console.info("Switch statement is true");
                   return true;
               }
             })
+            .concat(carsData.brands)
             .sort((first, second) => first.localeCompare(second))
         );
       });
@@ -176,6 +177,7 @@ export default function Form() {
     if (brands.length !== 0) {
       setCurrentModels(
         cars
+          .concat(carsData.models)
           .map((car) => {
             if (
               car.make.replace("-", " ") ===
@@ -275,6 +277,7 @@ export default function Form() {
                     onChange={(e) => {
                       setCurrentModels(
                         cars
+                          .concat(carsData.models)
                           .map((car) => {
                             if (
                               car.make.replace("-", " ") ===

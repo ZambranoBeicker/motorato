@@ -1,0 +1,338 @@
+{
+  "brands": [
+    "BAIC",
+    "BRILLIANCE",
+    "BYD",
+    "CHANGAN",
+    "CHERY",
+    "CITROEN",
+    "GEELY",
+    "GREAT WALL",
+    "HAVAL",
+    "JAC",
+    "LIFAN",
+    "MG",
+    "PEUGEOT",
+    "REANULT",
+    "SEAT",
+    "SSANGYONG"
+  ],
+  "models": [
+    {
+      "make": "baic",
+      "model": "baic m0"
+    },
+    {
+      "make": "baic",
+      "model": "baic x5"
+    },
+    {
+      "make": "baic",
+      "model": "baic new x5"
+    },
+    {
+      "make": "baic",
+      "model": "baic new x5"
+    },
+    {
+      "make": "brilliance",
+      "model": "new v3"
+    },
+    {
+      "make": "byd",
+      "model": "all new f3"
+    },
+    {
+      "make": "changan",
+      "model": "new cs5"
+    },
+    {
+      "make": "changan",
+      "model": "cs5 plus"
+    },
+    {
+      "make": "changan",
+      "model": "cs5"
+    },
+    {
+      "make": "changan",
+      "model": "cx0"
+    },
+    {
+      "make": "changan",
+      "model": "new van"
+    },
+    {
+      "make": "changan",
+      "model": "honor s"
+    },
+    {
+      "make": "changan",
+      "model": "grand supervan"
+    },
+    {
+      "make": "changan",
+      "model": "grand van turismo"
+    },
+    {
+      "make": "chery",
+      "model": "qq"
+    },
+    {
+      "make": "chery",
+      "model": "arrizo 3"
+    },
+    {
+      "make": "chery",
+      "model": "new tiggo 8"
+    },
+    {
+      "make": "chery",
+      "model": "tiggo 2 pro"
+    },
+    {
+      "make": "chery",
+      "model": "tiggo 2"
+    },
+    {
+      "make": "chery",
+      "model": "tiggo 3"
+    },
+    {
+      "make": "chery",
+      "model": "tiggo 7"
+    },
+    {
+      "make": "chery",
+      "model": "q2"
+    },
+    {
+      "make": "chery",
+      "model": "q2 l"
+    },
+    {
+      "make": "chery",
+      "model": "k0"
+    },
+    {
+      "make": "citroen",
+      "model": "new suv c5 aircross"
+    },
+    {
+      "make": "citroen",
+      "model": "new citro ën suv c4 cactus"
+    },
+    {
+      "make": "citroen",
+      "model": "new citroën c3"
+    },
+    {
+      "make": "citroen",
+      "model": "citroën c-elysée"
+    },
+    {
+      "make": "citroen",
+      "model": "citroën c-elysée"
+    },
+    {
+      "make": "geely",
+      "model": "emgrand 7"
+    },
+    {
+      "make": "geely",
+      "model": "gx3"
+    },
+    {
+      "make": "geely",
+      "model": "x7 sport"
+    },
+    {
+      "make": "geely",
+      "model": "gs"
+    },
+    {
+      "make": "great wall",
+      "model": "great wall m4"
+    },
+    {
+      "make": "great wall",
+      "model": "new voleex c0"
+    },
+    {
+      "make": "great wall",
+      "model": "wingle 7 diesel"
+    },
+    {
+      "make": "great wall",
+      "model": "wingle 5 gasolina"
+    },
+    {
+      "make": "haval",
+      "model": "haval new h2"
+    },
+    {
+      "make": "haval",
+      "model": "haval h6 sport"
+    },
+    {
+      "make": "haval",
+      "model": "haval all new h6"
+    },
+    {
+      "make": "jac",
+      "model": "jac js3"
+    },
+    {
+      "make": "jac",
+      "model": "jac js4"
+    },
+    {
+      "make": "jac",
+      "model": "jac js2"
+    },
+    {
+      "make": "jac",
+      "model": "jac s3"
+    },
+    {
+      "make": "jac",
+      "model": "jac grand s3"
+    },
+    {
+      "make": "jac",
+      "model": "jac t8"
+    },
+    {
+      "make": "jac",
+      "model": "jac t6"
+    },
+    {
+      "make": "jac",
+      "model": "jac j4"
+    },
+    {
+      "make": "mg",
+      "model": "mg3"
+    },
+    {
+      "make": "mg",
+      "model": "mg5"
+    },
+    {
+      "make": "mg",
+      "model": "mg6"
+    },
+    {
+      "make": "mg",
+      "model": "mg gs"
+    },
+    {
+      "make": "mg",
+      "model": "mg zx"
+    },
+    {
+      "make": "mg",
+      "model": "mg rx5"
+    },
+    {
+      "make": "mg",
+      "model": "mg hs"
+    },
+    {
+      "make": "peugeot",
+      "model": 208
+    },
+    {
+      "make": "peugeot",
+      "model": "301 sedan"
+    },
+    {
+      "make": "peugeot",
+      "model": "new 8"
+    },
+    {
+      "make": "peugeot",
+      "model": 3008
+    },
+    {
+      "make": "peugeot",
+      "model": 5008
+    },
+    {
+      "make": "peugeot",
+      "model": "traveller"
+    },
+    {
+      "make": "peugeot",
+      "model": "boxer max"
+    },
+    {
+      "make": "peugeot",
+      "model": "partner"
+    },
+    {
+      "make": "peugeot",
+      "model": "expert"
+    },
+    {
+      "make": "peugeot",
+      "model": "boxer"
+    },
+    {
+      "make": "reanult",
+      "model": "kwid"
+    },
+    {
+      "make": "reanult",
+      "model": "logan"
+    },
+    {
+      "make": "reanult",
+      "model": "duster oroch"
+    },
+    {
+      "make": "reanult",
+      "model": "stepway"
+    },
+    {
+      "make": "reanult",
+      "model": "duster"
+    },
+    {
+      "make": "seat",
+      "model": "ibiza"
+    },
+    {
+      "make": "seat",
+      "model": "león"
+    },
+    {
+      "make": "seat",
+      "model": "arona"
+    },
+    {
+      "make": "seat",
+      "model": "ateca"
+    },
+    {
+      "make": "ssangyong",
+      "model": "tivoli"
+    },
+    {
+      "make": "ssangyong",
+      "model": "all new korando"
+    },
+    {
+      "make": "ssangyong",
+      "model": "all new rexton"
+    },
+    {
+      "make": "ssangyong",
+      "model": "musso grand"
+    },
+    {
+      "make": "ssangyong",
+      "model": "musso short"
+    }
+  ]
+}
