@@ -78,6 +78,7 @@ export default function Form() {
                   return true;
               }
             })
+            .sort((first, second) => first.localeCompare(second))
         );
       });
     fetch("https://private-anon-24f161c43b-carsapi1.apiary-mock.com/cars")
