@@ -24,8 +24,30 @@ export const Button = styled.button`
 `;
 
 export const Wrapper = styled.div`
+  overflow: hidden;
   max-width: 100%;
   position: relative;
+`;
+export const FlexWrapper = styled.div`
+  width: 400%;
+  display: flex;
+  transition: 0.5s;
+  height: ${({ step }) => {
+    if (step === 1) {
+      return "1600px";
+    } else if (step === 2) {
+      return "500px";
+    } else if (step === 3) {
+      return "600px";
+    } else {
+      return "550px";
+    }
+  }};
+  transform: translateX(
+    -${({ position }) => {
+        return position * 25;
+      }}%
+  );
 `;
 
 const ButtonsWrapper = styled(Wrapper)`

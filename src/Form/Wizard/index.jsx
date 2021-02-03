@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { Wrapper, WizardButton } from "./styles.jsx";
+import { FlexWrapper, Wrapper, WizardButton } from "./styles.jsx";
 import Firebase from "../../firebaseConfig.js";
+import { Transition } from "react-transition-group";
 
 export default function Wizard({ steps, data }) {
   const [stepIndex, setStepIndex] = useState(0);
+  const [inProp, setInProp] = useState(false);
   const firebase = new Firebase();
 
   const clickHandler = (data) => {
@@ -27,16 +29,25 @@ export default function Wizard({ steps, data }) {
   return (
     <>
       <Wrapper>
-        {steps[stepIndex]}
+        <FlexWrapper position={stepIndex} step={stepIndex}>
+          {steps.map((step) => (
+            <div style={{ width: "25%" }}>{step}</div>
+          ))}
+        </FlexWrapper>
         {stepIndex === steps.length - 1 ? (
           <WizardButton
             saveButton
             setStepIndex={setStepIndex}
-            onClick={() => clickHandler(data)}
+            onClick={() => {
+              clickHandler(data);
+            }}
             stepsLenght={steps.length}
           />
         ) : (
           <WizardButton
+            onClick={() => {
+              setInProp(true);
+            }}
             setStepIndex={setStepIndex}
             stepsLenght={steps.length}
           />
